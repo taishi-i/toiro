@@ -22,7 +22,7 @@ copyright = '2020, Taishi Ikeda'
 author = 'Taishi Ikeda'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.2'
 
 
 # -- General configuration ---------------------------------------------------
