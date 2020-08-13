@@ -29,8 +29,7 @@ extras_requires_tokenizers = [
     'ginza',
     'kytea',
     'pyknp',
-    'sentencepiece',
-    'torch'
+    'sentencepiece'
 ]
 
 extras_requires_classifiers = [
