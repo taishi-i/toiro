@@ -4,7 +4,7 @@ python:
     - "3.7"
     - "3.8"
 install:
-    - python setup.py install
+    - pip install .[all_tokenizers]
     - pip install coveralls
 script:
     - coverage run --source=toiro setup.py test
