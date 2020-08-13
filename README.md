@@ -114,16 +114,10 @@ tokenizers.print_words(text, delimiter="|")
 Run toiro in Docker
 -------------------
 
-Build a docker container
-```bash
-git clone https://github.com/taishi-i/toiro
-cd toiro
-docker build -t taishi-i/toiro -f docker/cpu/Dockerfile .
-```
+You can use all tokenizers by building a docker container from Docker Hub.
 
-Run the docker container
 ```bash
-docker run --rm -i -t taishi-i/toiro /bin/bash
+docker run --rm -it taishii/toiro /bin/bash
 ```
 
 Get more information about toiro
