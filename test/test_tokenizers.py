@@ -77,7 +77,7 @@ def test_ginza():
         tokens = tokenizers.original_ginza(text)
         assert str(type(tokens)) == "<class 'spacy.tokens.doc.Doc'>"
     else:
-        assert toiro.is_ginza_available() is False
+        assert tokenizers.is_ginza_available() is False
 
 
 def test_kytea():
@@ -88,7 +88,7 @@ def test_kytea():
         tokenizers.original_kytea(text)
         assert words == expected
     else:
-        assert toiro.is_kytea_available() is False
+        assert tokenizers.is_kytea_available() is False
 
 
 def test_jumanpp():
@@ -100,7 +100,7 @@ def test_jumanpp():
         tokens = tokenizers.original_jumanpp(text)
         assert str(type(tokens)) == "<class 'pyknp.juman.mlist.MList'>"
     else:
-        assert toiro.is_jumanpp_available() is False
+        assert tokenizers.is_jumanpp_available() is False
 
 
 def test_sentencepiece():
