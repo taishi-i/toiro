@@ -40,13 +40,14 @@ def test_classifier_bert():
             datadownloader.sample_datasets.sample_dev
         )
 
-        test_df = classifiers.read_file(
-            datadownloader.sample_datasets.sample_test
-        )
+        # test_df = classifiers.read_file(
+        #     datadownloader.sample_datasets.sample_test
+        # )
 
         model = classifiers.BERTClassificationModel()
         model.fit(train_df, dev_df)
-        eval_result = model.eval(test_df)
-        print(eval_result)
+
+        text = "Python で前処理を"
+        pred_y = model.predict(text)
     else:
         assert classifiers.is_bert_available() is False

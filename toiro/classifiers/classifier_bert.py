@@ -242,9 +242,11 @@ class BERTClassificationModel:
 
             self.elapsed_time = time.time() - start
             config["elapsed_time"] = self.elapsed_time
-            filename = f"{log_dir}/checkpoints/config.pkl"
-            with open(filename, "wb") as f:
-                pickle.dump([label2id, config], f)
+
+            if os.path.exists(f"{log_dir}/checkpoints"):
+                filename = f"{log_dir}/checkpoints/config.pkl"
+                with open(filename, "wb") as f:
+                    pickle.dump([label2id, config], f)
 
     def predict(self, text):
         if self.data_for_predict:
