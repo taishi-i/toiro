@@ -25,10 +25,7 @@ RUN wget https://github.com/ku-nlp/jumanpp/releases/download/v2.0.0-rc3/jumanpp-
 WORKDIR /workspace
 COPY . toiro
 
-RUN cd toiro && pip3 install .[all_tokenizers]
 RUN pip3 install -U pip
-RUN pip3 install pytest
-RUN pip3 install pytest-cov
-RUN pytest -v --cov=toiro
+RUN cd toiro && pip3 install .[all_tokenizers]
 
 CMD ["/bin/bash"]
