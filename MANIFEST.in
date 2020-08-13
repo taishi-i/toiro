@@ -1,0 +1,2 @@
+recursive-include toiro/datadownloader/data *
+recursive-include toiro/tokenizers/data *
