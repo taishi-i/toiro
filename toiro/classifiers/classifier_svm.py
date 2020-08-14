@@ -12,7 +12,7 @@ from toiro import tokenizers
 from toiro import classifiers
 
 
-class SVMClassifitionModel:
+class SVMClassificationModel:
     """
     Text classification model based on SVM and tf-idf.
 

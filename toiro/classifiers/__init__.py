@@ -3,7 +3,7 @@ from .classifier_utils import (
     EvaluationMetrics
 )
 
-from .classifier_svm import SVMClassifitionModel
+from .classifier_svm import SVMClassificationModel
 
 
 try:

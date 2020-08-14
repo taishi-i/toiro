@@ -11,7 +11,7 @@ def test_classifier_svm():
         corpus=livedoor_corpus
     )
 
-    model = classifiers.SVMClassifitionModel()
+    model = classifiers.SVMClassificationModel()
     model.fit(train_df, dev_df)
     eval_result = model.eval(test_df)
     print(eval_result)
@@ -19,7 +19,7 @@ def test_classifier_svm():
     print(eval_result['elapsed_time'])
 
     model.save(f"{livedoor_corpus}.pkl")
-    model = classifiers.SVMClassifitionModel(
+    model = classifiers.SVMClassificationModel(
         model_file=f"{livedoor_corpus}.pkl"
     )
 
