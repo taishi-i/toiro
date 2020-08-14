@@ -120,6 +120,45 @@ You can use all tokenizers by building a docker container from Docker Hub.
 docker run --rm -it taishii/toiro /bin/bash
 ```
 
+<details>
+<summary> Example </summary>
+<p>
+
+``` base
+root@cdd2ad2d7092:/workspace# python3
+```
+
+```python
+>>> from toiro import tokenizers
+>>> from toiro import classifiers
+>>> tokenizers.available_tokenizers()
+{'nagisa': {'is_available': True, 'version': '0.2.7'}, 'janome': {'is_available': True, 'version': '0.3.10'}, 'mecab-python3': {'is_available': True, 'version': '0.996'}, 'sudachipy': {'is_available': True, 'version': '0.4.9'}, 'spacy': {'is_available': True, 'version': '2.3.2'}, 'ginza': {'is_available': True, 'version': '2.3.2'}, 'kytea': {'is_available': True, 'version': '0.1.5'}, 'jumanpp': {'is_available': True, 'version': '0.4.1'}, 'sentencepiece': {'is_available': True, 'version': '0.1.91'}}
+>>> sample = datadownloader.sample_datasets.sample_txt
+>>> tokenizers.compare_from_file(sample)
+[1/9] Tokenizer: mecab-python3
+100%|███████████████████████████████████████████████████████████████| 439/439 [00:00<00:00, 29612.88it/s]
+[2/9] Tokenizer: janome
+100%|█████████████████████████████████████████████████████████████████| 439/439 [00:01<00:00, 227.93it/s]
+[3/9] Tokenizer: nagisa
+100%|█████████████████████████████████████████████████████████████████| 439/439 [00:03<00:00, 137.04it/s]
+[4/9] Tokenizer: sudachipy
+100%|█████████████████████████████████████████████████████████████████| 439/439 [00:01<00:00, 227.60it/s]
+[5/9] Tokenizer: spacy
+100%|█████████████████████████████████████████████████████████████████| 439/439 [00:02<00:00, 189.90it/s]
+[6/9] Tokenizer: ginza
+100%|█████████████████████████████████████████████████████████████████| 439/439 [00:02<00:00, 182.15it/s]
+[7/9] Tokenizer: kytea
+100%|████████████████████████████████████████████████████████████████| 439/439 [00:00<00:00, 8086.48it/s]
+[8/9] Tokenizer: jumanpp
+100%|██████████████████████████████████████████████████████████████████| 439/439 [00:08<00:00, 53.03it/s]
+[9/9] Tokenizer: sentencepiece
+100%|███████████████████████████████████████████████████████████████| 439/439 [00:00<00:00, 29432.07it/s]
+{'execution_environment': {'python_version': '3.6.9.final.0 (64 bit)', 'arch': 'X86_64', 'brand_raw': 'Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz', 'count': 8}, 'data': {'number_of_sentences': 439, 'average_length': 81.79043280182232}, 'mecab-python3': {'elapsed_time': 0.014958858489990234}, 'janome': {'elapsed_time': 1.9261481761932373}, 'nagisa': {'elapsed_time': 3.203493356704712}, 'sudachipy': {'elapsed_time': 1.928952932357788}, 'spacy': {'elapsed_time': 2.3118906021118164}, 'ginza': {'elapsed_time': 2.410198450088501}, 'kytea': {'elapsed_time': 0.054438114166259766}, 'jumanpp': {'elapsed_time': 8.278911828994751}, 'sentencepiece': {'elapsed_time': 0.015040159225463867}}
+```
+
+</p>
+</details>
+
 Get more information about toiro
 --------------------------------
 
