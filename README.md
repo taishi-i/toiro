@@ -5,6 +5,7 @@ toiro
 
 [![Build Status](https://travis-ci.org/taishi-i/toiro.svg?branch=master)](https://travis-ci.org/taishi-i/toiro)
 [![PyPI](https://img.shields.io/pypi/v/toiro)](https://pypi.python.org/pypi/toiro)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/toiro)
 
 
 Toiro is a comparison tool of Japanese tokenizers.

@@ -1,1 +1,1 @@
-toiro[all_tokenizers]
+toiro
