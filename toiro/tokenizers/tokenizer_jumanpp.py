@@ -19,8 +19,10 @@ def tokenize(text):
     """
 
     # Error avoidance for long text
-    if len(text.encode('utf-8')) > 4096:
-        text = text[:1365]
+    text = text[:1024]
+
+    # Error avoidance for space
+    text = text.replace(' ', '　')
 
     result = jumanpp.analysis(text)
     words = [mrph.midasi for mrph in result.mrph_list()]
@@ -43,8 +45,10 @@ def original_usage(text):
     """
 
     # Error avoidance for long text
-    if len(text.encode('utf-8')) > 4096:
-        text = text[:1365]
+    text = text[:1024]
+
+    # Error avoidance for space
+    text = text.replace(' ', '　')
 
     tokens = jumanpp.analysis(text)
     return tokens
