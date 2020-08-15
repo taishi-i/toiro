@@ -4,61 +4,58 @@ from tqdm import tqdm
 from cpuinfo import get_cpu_info
 
 import numpy as np
-
-import toiro
-
 from toiro import tokenizers
 
 
-def get_avaiable_tokenizers():
+def get_avaiable_tokenizers(disable_tokenizers=None):
+    if disable_tokenizers is None:
+        disable_tokenizers = []
 
     _tokenizers = {}
-
-    # if tokenizers.is_mecab_available():
     if tokenizers.is_mecab_available():
         _mecab_python3 = 'mecab-python3'
-
-        _tokenizers[_mecab_python3] = tokenizers.tokenize_mecab
+        if _mecab_python3 not in disable_tokenizers:
+            _tokenizers[_mecab_python3] = tokenizers.tokenize_mecab
 
     if tokenizers.is_janome_available():
         _janome = 'janome'
-
-        _tokenizers[_janome] = tokenizers.tokenize_janome
+        if _janome not in disable_tokenizers:
+            _tokenizers[_janome] = tokenizers.tokenize_janome
 
     if tokenizers.is_nagisa_available():
         _nagisa = 'nagisa'
-
-        _tokenizers[_nagisa] = tokenizers.tokenize_nagisa
+        if _nagisa not in disable_tokenizers:
+            _tokenizers[_nagisa] = tokenizers.tokenize_nagisa
 
     if tokenizers.is_sudachipy_available():
         _sudachipy = 'sudachipy'
-
-        _tokenizers[_sudachipy] = tokenizers.tokenize_sudachipy
+        if _sudachipy not in disable_tokenizers:
+            _tokenizers[_sudachipy] = tokenizers.tokenize_sudachipy
 
     if tokenizers.is_spacy_available():
         _spacy = 'spacy'
-
-        _tokenizers[_spacy] = tokenizers.tokenize_spacy
+        if _spacy not in disable_tokenizers:
+            _tokenizers[_spacy] = tokenizers.tokenize_spacy
 
     if tokenizers.is_ginza_available():
         _ginza = 'ginza'
-
-        _tokenizers[_ginza] = tokenizers.tokenize_ginza
+        if _ginza not in disable_tokenizers:
+            _tokenizers[_ginza] = tokenizers.tokenize_ginza
 
     if tokenizers.is_kytea_available():
         _kytea = 'kytea'
-
-        _tokenizers[_kytea] = tokenizers.tokenize_kytea
+        if _kytea not in disable_tokenizers:
+            _tokenizers[_kytea] = tokenizers.tokenize_kytea
 
     if tokenizers.is_jumanpp_available():
         _jumanpp = 'jumanpp'
-
-        _tokenizers[_jumanpp] = tokenizers.tokenize_jumanpp
+        if _jumanpp not in disable_tokenizers:
+            _tokenizers[_jumanpp] = tokenizers.tokenize_jumanpp
 
     if tokenizers.is_sentencepiece_available():
         _sentencepiece = 'sentencepiece'
-
-        _tokenizers[_sentencepiece] = tokenizers.tokenize_sentencepiece
+        if _sentencepiece not in disable_tokenizers:
+            _tokenizers[_sentencepiece] = tokenizers.tokenize_sentencepiece
 
     return _tokenizers
 
@@ -83,7 +80,7 @@ def _make_initial_report(texts):
     return report
 
 
-def compare_from_file(filename, verbose=True):
+def compare_from_file(filename, disable_tokenizers=None, verbose=True):
     """
     Method to compare the tokenizers from an input text.
 
@@ -94,6 +91,9 @@ def compare_from_file(filename, verbose=True):
     ----------
     filename : str
         An input file
+
+    disable_tokenizers : list
+        A list of non-comparative tokenizers
 
     verbose : bool
         If True, show the process
@@ -110,11 +110,13 @@ def compare_from_file(filename, verbose=True):
     """
     with open(filename, "r") as f:
         texts = [line.strip() for line in f if len(line.strip()) > 0]
-    report = compare(texts, verbose=verbose)
+    report = compare(
+        texts, disable_tokenizers=disable_tokenizers, verbose=verbose
+    )
     return report
 
 
-def compare(texts, verbose=True):
+def compare(texts, disable_tokenizers=None, verbose=True):
     """
     Method to compare the tokenizers for a list of input text.
 
@@ -125,6 +127,9 @@ def compare(texts, verbose=True):
     ----------
     texts : list
         A list of input text
+
+    disable_tokenizers : list
+        A list of non-comparative tokenizers
 
     verbose : bool
         If True, show the process
@@ -140,8 +145,7 @@ def compare(texts, verbose=True):
     >>> print(report)
     """
     report = _make_initial_report(texts)
-
-    tokenizers = get_avaiable_tokenizers()
+    tokenizers = get_avaiable_tokenizers(disable_tokenizers)
     num_tokenizers = len(tokenizers.items())
     for i, (tokenizer_name, tokenize) in enumerate(tokenizers.items(), 1):
         if verbose:
