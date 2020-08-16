@@ -132,5 +132,18 @@ def test_compare_from_file():
     assert type(report) == dict
 
 
+def test_compare_from_file_with_disable_tokenizers():
+    filename = datadownloader.sample_datasets.sample_txt
+    report = tokenizers.compare_from_file(
+        filename, disable_tokenizers=["nagisa"]
+    )
+    print(report)
+    assert type(report) == dict
+
+
 def test_print_words():
     tokenizers.print_words(text)
+
+
+def test_print_words_with_disable_tokenizers():
+    tokenizers.print_words(text, disable_tokenizers=["nagisa"])

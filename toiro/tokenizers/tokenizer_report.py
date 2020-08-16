@@ -163,7 +163,7 @@ def compare(texts, disable_tokenizers=None, verbose=True):
     return report
 
 
-def print_words(text, delimiter=" "):
+def print_words(text, disable_tokenizers=None, delimiter=" "):
     """
     Method to compare the segmented words.
 
@@ -173,6 +173,9 @@ def print_words(text, delimiter=" "):
     ----------
     texts : str
         An input text
+
+    disable_tokenizers : list
+        A list of non-comparative tokenizers
 
     delimiter : str
         A delimiter of words
@@ -185,7 +188,7 @@ def print_words(text, delimiter=" "):
            janome: 単語|分割|の|結果|を|比較|し|ます
     mecab_python3: 単語|分割|の|結果|を|比較|し|ます
     """
-    tokenizers = get_avaiable_tokenizers()
+    tokenizers = get_avaiable_tokenizers(disable_tokenizers=disable_tokenizers)
     for tokenizer_name, tokenize in tokenizers.items():
         words = tokenize(text)
         words = delimiter.join(words)
