@@ -41,7 +41,7 @@ extras_requires_classifiers = [
 
 setup(
     name='toiro',
-    version='0.0.3',
+    version='0.0.4',
     description='A comparison tool of Japanese tokenizers',
     author='Taishi Ikeda',
     author_email='taishi.ikeda.0323@gmail.com',
@@ -49,7 +49,7 @@ setup(
     long_description=_long_description(),
     keywords='Japanese NLP',
     url='https://github.com/taishi-i/toiro',
-    download_url='https://github.com/taishi-i/toiro/archive/0.0.3.tar.gz',
+    download_url='https://github.com/taishi-i/toiro/archive/0.0.4.tar.gz',
     packages=[
         'toiro',
         'toiro.datadownloader',

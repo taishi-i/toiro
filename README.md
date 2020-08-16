@@ -4,9 +4,9 @@ toiro
 -----
 
 [![Build Status](https://travis-ci.org/taishi-i/toiro.svg?branch=master)](https://travis-ci.org/taishi-i/toiro)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/taishii/toiro)](https://hub.docker.com/r/taishii/toiro)
 [![PyPI](https://img.shields.io/pypi/v/toiro)](https://pypi.python.org/pypi/toiro)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/toiro)
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/taishii/toiro)](https://hub.docker.com/r/taishii/toiro)
 
 
 Toiro is a comparison tool of Japanese tokenizers.
@@ -159,3 +159,6 @@ Tutorials
 - [03_compare_tokenizers_with_downsteam_tasks.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/03_compare_tokenizers_with_downsteam_tasks.ipynb)
 - [04_tutorial_datadownloader.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/04_tutorial_datadownloader.ipynb)
 - [05_svm_vs_bert_benchmarking_application_tasks.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/05_svm_vs_bert_benchmarking_application_tasks.ipynb)
+
+Tutorials in Japanese
+- [01_getting_started_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started_ja.ipynb)
