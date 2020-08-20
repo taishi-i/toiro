@@ -49,7 +49,7 @@ pip install nagisa
 
 [mecab-python3](https://github.com/SamuraiT/mecab-python3)
 ```
-pip install mecab-pyhon3<=0.996.5
+pip install mecab-python3==0.996.5
 ```
 
 [GiNZA](https://github.com/megagonlabs/ginza)
@@ -196,13 +196,6 @@ sentencepiece: ▁|都|庁|所在地|は|新宿|区|。
 
 Get more information about toiro
 --------------------------------
-
-Tutorials
-- [01_getting_started.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started.ipynb)
-- [02_tutorial_tokenizers.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/02_tutorial_tokenizers.ipynb)
-- [03_compare_tokenizers_with_downsteam_tasks.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/03_compare_tokenizers_with_downsteam_tasks.ipynb)
-- [04_tutorial_datadownloader.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/04_tutorial_datadownloader.ipynb)
-- [05_svm_vs_bert_benchmarking_application_tasks.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/05_svm_vs_bert_benchmarking_application_tasks.ipynb)
 
 Tutorials in Japanese
 - [01_getting_started_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started_ja.ipynb)
