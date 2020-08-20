@@ -44,7 +44,7 @@ pip install nagisa
 ```
 
 <details>
-<summary> Install more tokenizers </summary>
+<summary> How to install other tokenizers </summary>
 <p>
 
 [mecab-python3](https://github.com/SamuraiT/mecab-python3)
@@ -63,13 +63,17 @@ pip install spacy[ja]
 ```
 
 [KyTea](https://github.com/neubig/kytea)
+
 You need to install KyTea. Please refer to [here](http://www.phontron.com/kytea/index-ja.html).
+
 ```
 pip install kytea
 ```
 
 [Juman++ v2](https://github.com/ku-nlp/jumanpp)
+
 You need to install Juman++ v2. Please refer to [here](http://nlp.ist.i.kyoto-u.ac.jp/index.php?JUMAN++).
+
 ```
 pip install pyknp
 ```
