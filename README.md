@@ -33,7 +33,7 @@ pip install toiro
 ```
 
 Adding a tokenizer to toiro
-------------------------
+---------------------------
 
 If you want to add a tokenizer to toiro, please install it individually.
 This is an example of adding [SudachiPy](https://github.com/WorksApplications/SudachiPy) and [nagisa](https://github.com/taishi-i/nagisa) to toiro.
@@ -42,6 +42,45 @@ This is an example of adding [SudachiPy](https://github.com/WorksApplications/Su
 pip install sudachipy sudachidict_core
 pip install nagisa
 ```
+
+<details>
+<summary> Install more tokenizers </summary>
+<p>
+
+[mecab-python3](https://github.com/SamuraiT/mecab-python3)
+```
+pip install mecab-pyhon3<=0.996.5
+```
+
+[GiNZA](https://github.com/megagonlabs/ginza)
+```
+pip install spacy ginza
+```
+
+[spaCy](https://github.com/explosion/spaCy)
+```
+pip install spacy[ja]
+```
+
+[KyTea](https://github.com/neubig/kytea)
+You need to install KyTea. Please refer to [here](http://www.phontron.com/kytea/index-ja.html).
+```
+pip install kytea
+```
+
+[Juman++ v2](https://github.com/ku-nlp/jumanpp)
+You need to install Juman++ v2. Please refer to [here](http://nlp.ist.i.kyoto-u.ac.jp/index.php?JUMAN++).
+```
+pip install pyknp
+```
+
+[SentencePiece](https://github.com/google/sentencepiece)
+```
+pip install sentencepiece
+```
+
+</p>
+</details>
 
 If you want to install all the tokonizers at once, please use the following command.
 ```bash
@@ -163,15 +202,10 @@ Tutorials
 
 Tutorials in Japanese
 - [01_getting_started_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started_ja.ipynb)
+- [05_svm_vs_bert_benchmarking_application_tasks_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/05_svm_vs_bert_benchmarking_application_tasks_ja.ipynb)
 
 
 Contributing
 ------------
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-
-License
--------
-
-[Apache License 2.0](http://www.apache.org/licenses/)
