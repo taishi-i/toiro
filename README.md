@@ -5,6 +5,7 @@ toiro
 
 [![Build Status](https://travis-ci.org/taishi-i/toiro.svg?branch=master)](https://travis-ci.org/taishi-i/toiro)
 [![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/taishii/toiro)](https://hub.docker.com/r/taishii/toiro)
+![Python Package](https://github.com/taishi-i/toiro/workflows/Upload%20Python%20Package/badge.svg)
 [![PyPI](https://img.shields.io/pypi/v/toiro)](https://pypi.python.org/pypi/toiro)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/toiro)
 
@@ -162,3 +163,15 @@ Tutorials
 
 Tutorials in Japanese
 - [01_getting_started_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started_ja.ipynb)
+
+
+Contributing
+------------
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+License
+-------
+
+[Apache License 2.0](http://www.apache.org/licenses/)
