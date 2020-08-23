@@ -18,7 +18,7 @@ def tokenize(text):
     words : list
         A list of words
     """
-    words = t.tokenize(text, wakati=True)
+    words = list(t.tokenize(text, wakati=True))
     return words
 
 
@@ -36,5 +36,5 @@ def original_usage(text):
     tokens : list
         The analysis results by Janome
     """
-    tokens = t.tokenize(text)
+    tokens = list(t.tokenize(text))
     return tokens
