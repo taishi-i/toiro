@@ -197,6 +197,9 @@ sentencepiece: ▁|都|庁|所在地|は|新宿|区|。
 Get more information about toiro
 --------------------------------
 
+The slides at PyCon JP 2020
+- [Speaker Deck](https://speakerdeck.com/taishii/pycon-jp-2020)
+
 Tutorials in Japanese
 - [01_getting_started_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started_ja.ipynb)
 - [05_svm_vs_bert_benchmarking_application_tasks_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/05_svm_vs_bert_benchmarking_application_tasks_ja.ipynb)
