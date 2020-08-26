@@ -4,8 +4,8 @@
 
 - 発表スケジュール: 2020/08/29 14:50-15:20 (30min)
 - 発表詳細: https://pycon.jp/2020/timetable/?id=203164
-- 発表スライド（Speaker Deck）:
-- サンプルコード（Google Colab）:
+- 発表スライド（Speaker Deck）: https://speakerdeck.com/taishii/pycon-jp-2020
+- サンプルコード（Google Colab）: https://github.com/taishi-i/toiro/blob/develop/PyConJP2020/PyConJP2020_Online.ipynb
 
 ## エレベーターピッチ
 
