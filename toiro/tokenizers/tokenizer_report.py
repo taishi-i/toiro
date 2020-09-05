@@ -80,7 +80,8 @@ def _make_initial_report(texts):
     return report
 
 
-def compare_from_file(filename, disable_tokenizers=None, verbose=True):
+def compare_from_file(filename, disable_tokenizers=None, verbose=True,
+                      additional_tokenizers=None):
     """
     Method to compare the tokenizers from an input text.
 
@@ -98,6 +99,11 @@ def compare_from_file(filename, disable_tokenizers=None, verbose=True):
     verbose : bool
         If True, show the process
 
+    additional_tokenizers: dict
+        A list of tokenizers to be added to the comparison is
+        in dictionary form,
+        where the keys are names and the values are functions.
+
     Returns
     -------
     report : dict
@@ -111,12 +117,14 @@ def compare_from_file(filename, disable_tokenizers=None, verbose=True):
     with open(filename, "r") as f:
         texts = [line.strip() for line in f if len(line.strip()) > 0]
     report = compare(
-        texts, disable_tokenizers=disable_tokenizers, verbose=verbose
+        texts, disable_tokenizers=disable_tokenizers, verbose=verbose,
+        additional_tokenizers=additional_tokenizers
     )
     return report
 
 
-def compare(texts, disable_tokenizers=None, verbose=True):
+def compare(texts, disable_tokenizers=None, verbose=True,
+            additional_tokenizers=None):
     """
     Method to compare the tokenizers for a list of input text.
 
@@ -134,6 +142,11 @@ def compare(texts, disable_tokenizers=None, verbose=True):
     verbose : bool
         If True, show the process
 
+    additional_tokenizers: dict
+        A list of tokenizers to be added to the comparison is
+        in dictionary form,
+        where the keys are names and the values are functions.
+
     Returns
     -------
     report : dict
@@ -146,6 +159,9 @@ def compare(texts, disable_tokenizers=None, verbose=True):
     """
     report = _make_initial_report(texts)
     tokenizers = get_avaiable_tokenizers(disable_tokenizers)
+    if additional_tokenizers:
+        tokenizers.update(additional_tokenizers)
+
     num_tokenizers = len(tokenizers.items())
     for i, (tokenizer_name, tokenize) in enumerate(tokenizers.items(), 1):
         if verbose:
@@ -163,7 +179,8 @@ def compare(texts, disable_tokenizers=None, verbose=True):
     return report
 
 
-def print_words(text, disable_tokenizers=None, delimiter=" "):
+def print_words(text, disable_tokenizers=None, delimiter=" ",
+                additional_tokenizers=None):
     """
     Method to compare the segmented words.
 
@@ -180,6 +197,11 @@ def print_words(text, disable_tokenizers=None, delimiter=" "):
     delimiter : str
         A delimiter of words
 
+    additional_tokenizers: dict
+        A list of tokenizers to be added to the comparison is
+        in dictionary form,
+        where the keys are names and the values are functions.
+
     Examples
     --------
     >>> text = "単語分割の結果を比較します"
@@ -189,6 +211,9 @@ def print_words(text, disable_tokenizers=None, delimiter=" "):
     mecab_python3: 単語|分割|の|結果|を|比較|し|ます
     """
     tokenizers = get_avaiable_tokenizers(disable_tokenizers=disable_tokenizers)
+    if additional_tokenizers:
+        tokenizers.update(additional_tokenizers)
+
     for tokenizer_name, tokenize in tokenizers.items():
         words = tokenize(text)
         words = delimiter.join(words)

@@ -1,8 +1,5 @@
-import toiro
-
 from toiro import tokenizers
 from toiro import datadownloader
-
 
 text = "Python で前処理を"
 
@@ -39,7 +36,8 @@ def test_sudachipy():
         assert words == expected
 
         tokens = tokenizers.original_sudachipy(text)
-        assert str(type(tokens)) == "<class 'sudachipy.morphemelist.MorphemeList'>"
+        expected = "<class 'sudachipy.morphemelist.MorphemeList'>"
+        assert str(type(tokens)) == expected
     else:
         assert tokenizers.is_sudachipy_available() is False
 
@@ -147,3 +145,35 @@ def test_print_words():
 
 def test_print_words_with_disable_tokenizers():
     tokenizers.print_words(text, disable_tokenizers=["nagisa"])
+
+
+def char_tokenize(text):
+    chars = list(text)
+    return chars
+
+
+def test_compare_with_additional_tokenizers():
+    texts = [text]
+
+    additional_tokenizers = {"char": char_tokenize}
+
+    report = tokenizers.compare(
+        texts, additional_tokenizers=additional_tokenizers
+    )
+    assert type(report) == dict
+
+
+def test_compare_from_file_with_additional_tokenizers():
+    filename = datadownloader.sample_datasets.sample_txt
+
+    additional_tokenizers = {"char": char_tokenize}
+    report = tokenizers.compare_from_file(
+        filename, additional_tokenizers=additional_tokenizers
+    )
+    print(report)
+    assert type(report) == dict
+
+
+def test_print_words_with_additional_tokenizers():
+    additional_tokenizers = {"char": char_tokenize}
+    tokenizers.print_words(text, additional_tokenizers=additional_tokenizers)

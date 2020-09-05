@@ -51,7 +51,6 @@ setup(
     url='https://github.com/taishi-i/toiro',
     download_url='https://github.com/taishi-i/toiro/archive/0.0.6.tar.gz',
     packages=[
-        'toiro',
         'toiro.datadownloader',
         'toiro.tokenizers',
         'toiro.classifiers'
