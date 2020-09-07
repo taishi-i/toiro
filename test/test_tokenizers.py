@@ -117,6 +117,18 @@ def test_sentencepiece():
         assert tokenizers.is_sentencepiece_available() is False
 
 
+def test_fugashi_ipadic():
+    if tokenizers.is_fugashi_ipadic_available():
+        expected = ['Python', 'で', '前', '処理', 'を']
+        words = tokenizers.tokenize_fugashi_ipadic(text)
+        assert words == expected
+
+        tokens = tokenizers.original_fugashi_ipadic(text)
+        assert type(tokens) == list
+    else:
+        tokenizers.is_fugashi_ipadic_available() is False
+
+
 def test_compare():
     texts = [text]
     report = tokenizers.compare(texts)

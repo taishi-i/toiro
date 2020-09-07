@@ -30,7 +30,8 @@ extras_requires_tokenizers = [
     'kytea',
     'pyknp',
     'sentencepiece',
-    'fugashi[unidic-lite]'
+    'fugashi',
+    'ipadic'
 ]
 
 extras_requires_classifiers = [

@@ -1,3 +1,4 @@
+import os
 import imp
 import pkg_resources
 
@@ -92,6 +93,16 @@ try:
 except:
     _sentencepiece_available = False
     _sentencepiece_version = False
+
+
+try:
+    import ipadic
+    import fugashi
+    _fugashi_ipadic_available = True
+    _fugashi_ipadic_version = "1.0.4"
+except:
+    _fugashi_ipadic_available = False
+    _fugashi_ipadic_version = False
 
 
 def is_mecab_available():
@@ -271,7 +282,7 @@ def is_sentencepiece_available():
 
     Returns
     -------
-    _jumanpp_available : bool
+    _sentencepiece_available : bool
         If True, sentencepiece is available in your environment.
 
     Examples
@@ -281,6 +292,28 @@ def is_sentencepiece_available():
 
     """
     return _sentencepiece_available
+
+
+def is_fugashi_ipadic_available():
+    """
+    Check if the library is available.
+
+    This function checks if sentencepiece is available in your environment
+    and returns the result as a bool value.
+
+    Returns
+    -------
+    _fugashi_ipadic_available : bool
+        If True, fugashi wiht ipadic is available in your environment.
+
+    Examples
+    --------
+    >>> tokenizers.is_fugashi_ipadic_available()
+    True
+
+    """
+
+    return _fugashi_ipadic_available
 
 
 def available_tokenizers():
@@ -334,6 +367,10 @@ def available_tokenizers():
         "sentencepiece": {
             "is_available": is_sentencepiece_available(),
             "version": _sentencepiece_version
+        },
+        "fugashi-ipadic": {
+            "is_available": is_fugashi_ipadic_available(),
+            "version": _fugashi_ipadic_version
         }
     }
     return available_tokenizers_dict

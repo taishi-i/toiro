@@ -57,6 +57,11 @@ def get_avaiable_tokenizers(disable_tokenizers=None):
         if _sentencepiece not in disable_tokenizers:
             _tokenizers[_sentencepiece] = tokenizers.tokenize_sentencepiece
 
+    if tokenizers.is_fugashi_ipadic_available():
+        _fugashi_ipadic = 'fugashi_ipadic'
+        if _fugashi_ipadic not in disable_tokenizers:
+            _tokenizers[_fugashi_ipadic] = tokenizers.tokenize_fugashi_ipadic
+
     return _tokenizers
 
 
@@ -217,4 +222,4 @@ def print_words(text, disable_tokenizers=None, delimiter=" ",
     for tokenizer_name, tokenize in tokenizers.items():
         words = tokenize(text)
         words = delimiter.join(words)
-        print(f"{tokenizer_name:>13}: {words}")
+        print(f"{tokenizer_name:>14}: {words}")

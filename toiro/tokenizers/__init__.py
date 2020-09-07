@@ -8,6 +8,7 @@ from .tokenizer_utils import (
     is_kytea_available,
     is_jumanpp_available,
     is_sentencepiece_available,
+    is_fugashi_ipadic_available,
     available_tokenizers
 )
 
@@ -55,6 +56,11 @@ if is_jumanpp_available():
 if is_sentencepiece_available():
     from .tokenizer_sentencepiece import tokenize as tokenize_sentencepiece
     from .tokenizer_sentencepiece import original_usage as original_sentencepiece
+
+
+if is_fugashi_ipadic_available():
+    from .tokenizer_fugashi_ipadic import tokenize as tokenize_fugashi_ipadic
+    from .tokenizer_fugashi_ipadic import original_usage as original_fugashi_ipadic
 
 
 from .tokenizer_report import (
