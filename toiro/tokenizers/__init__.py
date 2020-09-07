@@ -9,6 +9,7 @@ from .tokenizer_utils import (
     is_jumanpp_available,
     is_sentencepiece_available,
     is_fugashi_ipadic_available,
+    is_tinysegmenter_available,
     available_tokenizers
 )
 
@@ -61,6 +62,11 @@ if is_sentencepiece_available():
 if is_fugashi_ipadic_available():
     from .tokenizer_fugashi_ipadic import tokenize as tokenize_fugashi_ipadic
     from .tokenizer_fugashi_ipadic import original_usage as original_fugashi_ipadic
+
+
+if is_tinysegmenter_available():
+    from .tokenizer_tinysegmenter import tokenize as tokenize_tinysegmenter
+    from .tokenizer_tinysegmenter import original_usage as original_tinysegmenter
 
 
 from .tokenizer_report import (

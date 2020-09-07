@@ -1,4 +1,3 @@
-import os
 import imp
 import pkg_resources
 
@@ -103,6 +102,15 @@ try:
 except:
     _fugashi_ipadic_available = False
     _fugashi_ipadic_version = False
+
+
+try:
+    import tinysegmenter
+    _tinysegmenter_available = True
+    _tinysegmenter_version = "0.1.0"
+except:
+    _tinysegmenter_available = False
+    _tinysegmenter_version = False
 
 
 def is_mecab_available():
@@ -316,6 +324,28 @@ def is_fugashi_ipadic_available():
     return _fugashi_ipadic_available
 
 
+def is_tinysegmenter_available():
+    """
+    Check if the library is available.
+
+    This function checks if tinysegmenter is available in your environment
+    and returns the result as a bool value.
+
+    Returns
+    -------
+    _tinysegmenter_available : bool
+        If True, tinysegmenter is available in your environment.
+
+    Examples
+    --------
+    >>> tokenizers.is_tinysegmenter_available()
+    True
+
+    """
+
+    return _tinysegmenter_available
+
+
 def available_tokenizers():
     """
     Return a list of available libraries.
@@ -371,6 +401,10 @@ def available_tokenizers():
         "fugashi-ipadic": {
             "is_available": is_fugashi_ipadic_available(),
             "version": _fugashi_ipadic_version
+        },
+        "tinysegmenter": {
+            "is_available": is_tinysegmenter_available(),
+            "version": _tinysegmenter_version
         }
     }
     return available_tokenizers_dict

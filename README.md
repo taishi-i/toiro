@@ -83,6 +83,17 @@ pip install pyknp
 pip install sentencepiece
 ```
 
+[fugashi](https://github.com/polm/fugashi)
+```
+pip install fugashi ipadic
+```
+
+[tinysegmenter](https://github.com/SamuraiT/tinysegmenter)
+```
+pip install tinysegmenter3
+```
+
+
 </p>
 </details>
 
@@ -102,7 +113,7 @@ available_tokenizers = tokenizers.available_tokenizers()
 print(available_tokenizers)
 ```
 
-Toiro supports 9 different Japanese tokonizers. This is an example of adding SudachiPy and nagisa.
+Toiro supports 11 different Japanese tokonizers. This is an example of adding SudachiPy and nagisa.
 ```python
 {'nagisa': {'is_available': True, 'version': '0.2.7'},
  'janome': {'is_available': True, 'version': '0.3.10'},
@@ -112,7 +123,9 @@ Toiro supports 9 different Japanese tokonizers. This is an example of adding Sud
  'ginza': {'is_available': False, 'version': False},
  'kytea': {'is_available': False, 'version': False},
  'jumanpp': {'is_available': False, 'version': False},
- 'sentencepiece': {'is_available': False, 'version': False}}
+ 'sentencepiece': {'is_available': False, 'version': False},
+ 'fugashi-ipadic': {'is_available': False, 'version': False},
+ 'tinysegmenter': {'is_available': False, 'version': False}}
 ```
 
 Download the livedoor news corpus and compare the processing speed of tokenizers.
@@ -180,15 +193,17 @@ Compare the words segmented in tokenizers
 >>> from toiro import tokenizers
 >>> text = "都庁所在地は新宿区。"
 >>> tokenizers.print_words(text, delimiter="|")
-mecab-python3: 都庁|所在地|は|新宿|区|。
-       janome: 都庁|所在地|は|新宿|区|。
-       nagisa: 都庁|所在|地|は|新宿|区|。
-    sudachipy: 都庁|所在地|は|新宿区|。
-        spacy: 都庁|所在|地|は|新宿|区|。
-        ginza: 都庁|所在地|は|新宿区|。
-        kytea: 都庁|所在|地|は|新宿|区|。
-      jumanpp: 都庁|所在|地|は|新宿|区|。
-sentencepiece: ▁|都|庁|所在地|は|新宿|区|。
+ mecab-python3: 都庁|所在地|は|新宿|区|。
+        janome: 都庁|所在地|は|新宿|区|。
+        nagisa: 都庁|所在|地|は|新宿|区|。
+     sudachipy: 都庁|所在地|は|新宿区|。
+         spacy: 都庁|所在|地|は|新宿|区|。
+         ginza: 都庁|所在地|は|新宿区|。
+         kytea: 都庁|所在|地|は|新宿|区|。
+       jumanpp: 都庁|所在|地|は|新宿|区|。
+ sentencepiece: ▁|都|庁|所在地|は|新宿|区|。
+fugashi-ipadic: 都庁|所在地|は|新宿|区|。
+ tinysegmenter: 都庁所|在地|は|新宿|区|。
 ```
 
 </p>

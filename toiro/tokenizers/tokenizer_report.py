@@ -58,9 +58,14 @@ def get_avaiable_tokenizers(disable_tokenizers=None):
             _tokenizers[_sentencepiece] = tokenizers.tokenize_sentencepiece
 
     if tokenizers.is_fugashi_ipadic_available():
-        _fugashi_ipadic = 'fugashi_ipadic'
+        _fugashi_ipadic = 'fugashi-ipadic'
         if _fugashi_ipadic not in disable_tokenizers:
             _tokenizers[_fugashi_ipadic] = tokenizers.tokenize_fugashi_ipadic
+
+    if tokenizers.is_tinysegmenter_available():
+        _tinysegmenter = 'tinysegmenter'
+        if _tinysegmenter not in disable_tokenizers:
+            _tokenizers[_tinysegmenter] = tokenizers.tokenize_tinysegmenter
 
     return _tokenizers
 

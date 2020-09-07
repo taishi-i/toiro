@@ -129,6 +129,18 @@ def test_fugashi_ipadic():
         tokenizers.is_fugashi_ipadic_available() is False
 
 
+def test_tinysegmenter():
+    if tokenizers.is_tinysegmenter_available():
+        expected = ['Python', ' ', 'で', '前処', '理', 'を']
+        words = tokenizers.tokenize_tinysegmenter(text)
+        assert words == expected
+
+        tokens = tokenizers.original_tinysegmenter(text)
+        assert type(tokens) == list
+    else:
+        tokenizers.is_tinysegmenter_available() is False
+
+
 def test_compare():
     texts = [text]
     report = tokenizers.compare(texts)

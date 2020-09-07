@@ -31,7 +31,8 @@ extras_requires_tokenizers = [
     'pyknp',
     'sentencepiece',
     'fugashi',
-    'ipadic'
+    'ipadic',
+    'tinysegmenter3'
 ]
 
 extras_requires_classifiers = [
