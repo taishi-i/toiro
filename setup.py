@@ -32,7 +32,8 @@ extras_requires_tokenizers = [
     'sentencepiece',
     'fugashi',
     'ipadic',
-    'tinysegmenter3'
+    'unidic-lite',
+    'tinysegmenter3',
 ]
 
 extras_requires_classifiers = [

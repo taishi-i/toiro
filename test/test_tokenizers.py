@@ -141,6 +141,18 @@ def test_tinysegmenter():
         tokenizers.is_tinysegmenter_available() is False
 
 
+def test_fugashi_unidic():
+    if tokenizers.is_fugashi_unidic_available():
+        expected = ['Python', 'で', '前', '処理', 'を']
+        words = tokenizers.tokenize_fugashi_unidic(text)
+        assert words == expected
+
+        tokens = tokenizers.original_fugashi_unidic(text)
+        assert type(tokens) == list
+    else:
+        tokenizers.is_fugashi_unidic_available() is False
+
+
 def test_compare():
     texts = [text]
     report = tokenizers.compare(texts)

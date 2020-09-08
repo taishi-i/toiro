@@ -62,6 +62,11 @@ def get_avaiable_tokenizers(disable_tokenizers=None):
         if _fugashi_ipadic not in disable_tokenizers:
             _tokenizers[_fugashi_ipadic] = tokenizers.tokenize_fugashi_ipadic
 
+    if tokenizers.is_fugashi_unidic_available():
+        _fugashi_unidic = 'fugashi-unidic'
+        if _fugashi_unidic not in disable_tokenizers:
+            _tokenizers[_fugashi_unidic] = tokenizers.tokenize_fugashi_unidic
+
     if tokenizers.is_tinysegmenter_available():
         _tinysegmenter = 'tinysegmenter'
         if _tinysegmenter not in disable_tokenizers:

@@ -83,9 +83,14 @@ pip install pyknp
 pip install sentencepiece
 ```
 
-[fugashi](https://github.com/polm/fugashi)
+[fugashi-ipadic](https://github.com/polm/fugashi)
 ```
 pip install fugashi ipadic
+```
+
+[fugashi-unidic](https://github.com/polm/fugashi)
+```
+pip install fugashi unidic-lite
 ```
 
 [tinysegmenter](https://github.com/SamuraiT/tinysegmenter)
@@ -113,7 +118,7 @@ available_tokenizers = tokenizers.available_tokenizers()
 print(available_tokenizers)
 ```
 
-Toiro supports 11 different Japanese tokonizers. This is an example of adding SudachiPy and nagisa.
+Toiro supports 12 different Japanese tokonizers. This is an example of adding SudachiPy and nagisa.
 ```python
 {'nagisa': {'is_available': True, 'version': '0.2.7'},
  'janome': {'is_available': True, 'version': '0.3.10'},
@@ -125,6 +130,7 @@ Toiro supports 11 different Japanese tokonizers. This is an example of adding Su
  'jumanpp': {'is_available': False, 'version': False},
  'sentencepiece': {'is_available': False, 'version': False},
  'fugashi-ipadic': {'is_available': False, 'version': False},
+ 'fugashi-unidic': {'is_available': False, 'version': False},
  'tinysegmenter': {'is_available': False, 'version': False}}
 ```
 
@@ -203,6 +209,7 @@ Compare the words segmented in tokenizers
        jumanpp: 都庁|所在|地|は|新宿|区|。
  sentencepiece: ▁|都|庁|所在地|は|新宿|区|。
 fugashi-ipadic: 都庁|所在地|は|新宿|区|。
+fugashi-unidic: 都庁|所在|地|は|新宿|区|。
  tinysegmenter: 都庁所|在地|は|新宿|区|。
 ```
 

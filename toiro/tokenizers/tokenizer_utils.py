@@ -113,6 +113,16 @@ except:
     _tinysegmenter_version = False
 
 
+try:
+    import fugashi
+    import unidic_lite
+    _fugashi_unidic_available = True
+    _fugashi_unidic_version = "1.0.4"
+except:
+    _fugashi_unidic_available = False
+    _fugashi_unidic_version = False
+
+
 def is_mecab_available():
     """
     Check if the library is available.
@@ -346,6 +356,28 @@ def is_tinysegmenter_available():
     return _tinysegmenter_available
 
 
+def is_fugashi_unidic_available():
+    """
+    Check if the library is available.
+
+    This function checks if sentencepiece is available in your environment
+    and returns the result as a bool value.
+
+    Returns
+    -------
+    _fugashi_unidic_available : bool
+        If True, fugashi wiht unidic is available in your environment.
+
+    Examples
+    --------
+    >>> tokenizers.is_fugashi_unidic_available()
+    True
+
+    """
+
+    return _fugashi_unidic_available
+
+
 def available_tokenizers():
     """
     Return a list of available libraries.
@@ -405,6 +437,10 @@ def available_tokenizers():
         "tinysegmenter": {
             "is_available": is_tinysegmenter_available(),
             "version": _tinysegmenter_version
+        },
+        "fugashi-unidic": {
+            "is_available": is_fugashi_unidic_available(),
+            "version": _fugashi_unidic_version
         }
     }
     return available_tokenizers_dict

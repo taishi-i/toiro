@@ -1,12 +1,6 @@
-import os
-
-import ipadic
 import fugashi
 
-dic_dir = ipadic.DICDIR
-mecabrc = os.path.join(dic_dir, "mecabrc")
-mecab_option = f"-d {dic_dir} -r {mecabrc}"
-tagger = fugashi.GenericTagger(mecab_option)
+tagger = fugashi.Tagger()
 
 
 def tokenize(text):
@@ -30,7 +24,7 @@ def tokenize(text):
 
 def original_usage(text):
     """
-    Return the analysis results by fugashi with ipadic.
+    Return the analysis results by fugashi with unidic-lite.
 
     Parameters
     ----------
@@ -42,6 +36,6 @@ def original_usage(text):
     tokens : list
         A list of fugashi.fugashi.Node
     """
-    # tokens = tokenize(text)
+
     tokens = tagger(text)
     return tokens
