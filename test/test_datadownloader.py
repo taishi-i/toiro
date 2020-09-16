@@ -2,15 +2,14 @@ import os
 
 import pytest
 
-# from toiro import tokenizers
-# from toiro import classifiers
 from toiro import datadownloader
 
 
 def test_available_corpus():
     corpora = datadownloader.available_corpus()
     excepted = [
-        'livedoor_news_corpus', 'yahoo_movie_reviews', 'amazon_reviews'
+        'livedoor_news_corpus', 'yahoo_movie_reviews',
+        'amazon_reviews', 'chABSA_dataset'
     ]
     assert corpora == excepted
 
@@ -53,7 +52,8 @@ def test_load_corpus():
     num_corpus = {
         'livedoor_news_corpus': {'train': 5900, 'dev': 737, 'test': 737},
         'yahoo_movie_reviews': {'train': 72956, 'dev': 9119, 'test': 9119},
-        'amazon_reviews': {'train': 209944, 'dev': 26243, 'test': 26243}
+        'amazon_reviews': {'train': 209944, 'dev': 26243, 'test': 26243},
+        'chABSA_dataset': {'train': 4895, 'dev': 611, 'test': 611}
     }
 
     for corpus in available_corpus:
@@ -68,6 +68,10 @@ def test_load_corpus():
             )
 
         elif corpus == 'amazon_reviews':
+            train_df, dev_df, test_df = datadownloader.load_corpus(
+                corpus=corpus
+            )
+        elif corpus == 'chABSA_dataset':
             train_df, dev_df, test_df = datadownloader.load_corpus(
                 corpus=corpus
             )

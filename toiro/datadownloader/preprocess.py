@@ -5,6 +5,7 @@ import glob
 import gzip
 import random
 import tarfile
+import zipfile
 
 import pandas as pd
 
@@ -115,12 +116,103 @@ def load_corpus(corpus, n=None, is_shuffle=True, corpus_type=None,
             n=n, is_shuffle=is_shuffle, corpus_type=corpus_type,
             train_data=train_data, dev_data=dev_data, test_data=test_data,
             random_seed=random_seed)
+    elif corpus == "chABSA_dataset":
+        return load_chABSA_dataset(
+            n=n, is_shuffle=is_shuffle,
+            train_data=train_data, dev_data=dev_data, test_data=test_data,
+            random_seed=random_seed)
     else:
         err_msg = " ".join(
             [f"{corpus} does not exist.",
             f"Use datadownloader.download_corpus('{corpus}') ."]
         )
         raise Exception(err_msg)
+
+
+def __count_polarity(opinions):
+    posinega = {"positive": 1, "negative": -1}
+    scores = [posinega.get(opinion["polarity"], 0) for opinion in opinions]
+    score = sum(scores)
+
+    if score > 0:
+        return "positive"
+    elif score < 0:
+        return "negative"
+    else:
+        return "neutral"
+
+
+def load_chABSA_dataset(n=None, is_shuffle=True,
+                        train_data=0.8, dev_data=0.1, test_data=0.1,
+                        random_seed=1234):
+    """
+    Dataloader for chABSA dataset.
+
+    The data is pre-processed and split into training data,
+    development data and test data.
+
+    Parameters
+    ----------
+    n : int
+        The number of datasets
+
+    is_shuffle : bool
+        If true, shuffle the dataset
+
+    train_data : float
+        Percentage of training data
+
+    dev_data : float
+        Percentage of development data
+
+    test_data : float
+        Percentage of test data
+
+    random_seed : int
+        Random seed for shuffle datasets
+
+    Returns
+    -------
+    train_df : pandas.core.frame.DataFrame
+        The training data
+
+    dev_df : pandas.core.frame.DataFrame
+        The development data
+
+    test_df : pandas.core.frame.DataFrame
+        The test data
+
+    """
+    random.seed(random_seed)
+
+    corpus = "chABSA_dataset"
+    corpora_dict = get_corpora_dict()
+    resource_dir = get_resource_dir()
+
+    filename = corpora_dict[corpus]["filename"]
+    filepath = os.path.join(resource_dir, filename)
+
+    with zipfile.ZipFile(filepath, 'r') as f:
+        f.extractall(resource_dir)
+
+    files = glob.glob(os.path.join(resource_dir, "chABSA-dataset", "*.json"))
+    data = []
+    for _file in files:
+        with open(_file, "r") as f:
+            _data = json.load(f)
+            sentences = _data["sentences"]
+            for sentence in sentences:
+                sent = sentence["sentence"]
+                opinions = sentence["opinions"]
+                label = __count_polarity(opinions)
+                data.append([label, sent])
+
+    _shuffle_data(is_shuffle, data)
+    data = _max_count_data(n, data)
+    train_df, dev_df, test_df = _split_train_dev_test(
+        data, train_data=train_data, dev_data=dev_data, test_data=test_data
+    )
+    return train_df, dev_df, test_df
 
 
 def load_amazon_reviews(n=None, is_shuffle=True,
@@ -162,10 +254,6 @@ def load_amazon_reviews(n=None, is_shuffle=True,
 
     test_df : pandas.core.frame.DataFrame
         The test data
-
-    Examples
-    --------
-    >>> train_df, dev_df, test_df = datadownloader.load_amazon_reviews()
 
     """
 
@@ -235,10 +323,6 @@ def load_yahoo_movie_reviews(n=None, is_shuffle=True, corpus_type="binary",
 
     test_df : pandas.core.frame.DataFrame
         The test data
-
-    Examples
-    --------
-    >>> train_df, dev_df, test_df = datadownloader.load_yahoo_movie_reviews()
 
     """
 
@@ -316,7 +400,6 @@ def load_yahoo_movie_reviews(n=None, is_shuffle=True, corpus_type="binary",
             f"Use datadownloader.download_corpus('{corpus}') ."]
         )
         raise Exception(err_msg)
-        raise Exception(err_msg)
 
 
 def load_livedoor_news_corpus(n=None, is_shuffle=True, corpus_type="title",
@@ -358,10 +441,6 @@ def load_livedoor_news_corpus(n=None, is_shuffle=True, corpus_type="title",
 
     test_df : pandas.core.frame.DataFrame
         The test data
-
-    Examples
-    --------
-    >>> train_df, dev_df, test_df = datadownloader.load_livedoor_news_corpus()
 
     """
 

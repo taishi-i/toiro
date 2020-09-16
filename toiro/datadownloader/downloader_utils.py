@@ -24,6 +24,11 @@ _CORPORA_DICT = {
         {
             "url": "https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_multilingual_JP_v1_00.tsv.gz",
             "filename": "amazon_reviews_multilingual_JP_v1_00.tsv.gz"
+        },
+    "chABSA_dataset":
+        {
+            "url": "https://s3-ap-northeast-1.amazonaws.com/dev.tech-sketch.jp/chakki/public/chABSA-dataset.zip",
+            "filename": "chABSA-dataset.zip"
         }
 }
 

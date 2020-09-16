@@ -221,6 +221,7 @@ Get more information about toiro
 
 The slides at PyCon JP 2020
 - [Speaker Deck](https://speakerdeck.com/taishii/pycon-jp-2020)
+- [PyConJP2020_Online.ipynb](https://github.com/taishi-i/toiro/blob/master/PyConJP2020/PyConJP2020_Online.ipynb)
 
 Tutorials in Japanese
 - [01_getting_started_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started_ja.ipynb)
