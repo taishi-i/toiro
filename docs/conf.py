@@ -14,7 +14,6 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../toiro'))
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'toiro'
@@ -22,8 +21,7 @@ copyright = '2020, Taishi Ikeda'
 author = 'Taishi Ikeda'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.7'
-
+release = '0.0.8'
 
 # -- General configuration ---------------------------------------------------
 
@@ -39,7 +37,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
 
 # -- Options for HTML output -------------------------------------------------
 

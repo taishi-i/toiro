@@ -1,13 +1,10 @@
 from setuptools import setup
 
-
 classifiers = [
-    'License :: OSI Approved :: MIT License',
-    'Natural Language :: Japanese',
+    'License :: OSI Approved :: MIT License', 'Natural Language :: Japanese',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8',
-    'Operating System :: Unix',
+    'Programming Language :: Python :: 3.8', 'Operating System :: Unix',
     'Topic :: Text Processing :: Linguistic',
     'Topic :: Software Development :: Libraries :: Python Modules'
 ]
@@ -36,16 +33,11 @@ extras_requires_tokenizers = [
     'tinysegmenter3',
 ]
 
-extras_requires_classifiers = [
-    'torch',
-    'transformers',
-    'catalyst'
-]
-
+extras_requires_classifiers = ['torch', 'transformers', 'catalyst']
 
 setup(
     name='toiro',
-    version='0.0.7',
+    version='0.0.8',
     description='A comparison tool of Japanese tokenizers',
     author='Taishi Ikeda',
     author_email='taishi.ikeda.0323@gmail.com',
@@ -53,23 +45,18 @@ setup(
     long_description=_long_description(),
     keywords='Japanese NLP',
     url='https://github.com/taishi-i/toiro',
-    download_url='https://github.com/taishi-i/toiro/archive/0.0.6.tar.gz',
-    packages=[
-        'toiro.datadownloader',
-        'toiro.tokenizers',
-        'toiro.classifiers'
-    ],
+    download_url='https://github.com/taishi-i/toiro/archive/0.0.8.tar.gz',
+    packages=['toiro.datadownloader', 'toiro.tokenizers', 'toiro.classifiers'],
     install_requires=[
         'requests', 'tqdm', 'pandas', 'sklearn', 'py-cpuinfo', 'janome'
     ],
     extras_require={
         'all_tokenizers': extras_requires_tokenizers,
         'all_classifiers': extras_requires_classifiers,
-        'all': extras_requires_tokenizers+extras_requires_classifiers
+        'all': extras_requires_tokenizers + extras_requires_classifiers
     },
     classifiers=classifiers,
     include_package_data=True,
     python_requires='>=3.6.0',
     setup_requires=['pytest-runner'],
-    tests_require=['pytest', 'pytest-cov']
-)
+    tests_require=['pytest', 'pytest-cov'])
