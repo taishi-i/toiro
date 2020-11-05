@@ -42,6 +42,15 @@ class SVMClassificationModel:
 
     def __init__(self, tokenizer="janome",
                  original_tokenizer=None, model_file=None):
+        """
+        Initialize a tokenizer.
+
+        Args:
+            self: (todo): write your description
+            tokenizer: (int): write your description
+            original_tokenizer: (todo): write your description
+            model_file: (str): write your description
+        """
         self.tokenizer = tokenizers.SelectTokenizer(tokenizer)
 
         if original_tokenizer:
@@ -65,6 +74,14 @@ class SVMClassificationModel:
         self.elapsed_time = None
 
     def fit(self, train_df, dev_df=None):
+        """
+        Fit the model to the given training data.
+
+        Args:
+            self: (todo): write your description
+            train_df: (array): write your description
+            dev_df: (array): write your description
+        """
         start = time.time()
         train_Y = train_df[0].values
         train_X = self.tfidf_extracter.fit_transform(train_df[1])
@@ -72,6 +89,13 @@ class SVMClassificationModel:
         self.elapsed_time = time.time() - start
 
     def eval(self, eval_df):
+        """
+        Evaluate the model on the given model.
+
+        Args:
+            self: (todo): write your description
+            eval_df: (todo): write your description
+        """
         test_Y = eval_df[0].values
         test_X = self.tfidf_extracter.transform(eval_df[1])
 
@@ -85,6 +109,13 @@ class SVMClassificationModel:
         return eval_metrics
 
     def predict(self, text):
+        """
+        Predict class labels.
+
+        Args:
+            self: (array): write your description
+            text: (str): write your description
+        """
         text = [text]
         x = self.tfidf_extracter.transform(text)
         pred_y = self.svm.predict(x)
@@ -92,5 +123,12 @@ class SVMClassificationModel:
         return pred_y
 
     def save(self, filename):
+        """
+        Saves a pickle file.
+
+        Args:
+            self: (todo): write your description
+            filename: (str): write your description
+        """
         with open(filename, "wb") as f:
             pickle.dump((self.svm, self.tfidf_extracter), f)

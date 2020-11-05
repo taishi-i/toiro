@@ -3,6 +3,11 @@ from toiro import datadownloader
 
 
 def test_classifier_svm():
+    """
+    Test for the classifier.
+
+    Args:
+    """
     # Download the livedoor news corpus and load it as pandas.DataFrame
     corpora = datadownloader.available_corpus()
     livedoor_corpus = corpora[0]
@@ -31,6 +36,11 @@ def test_classifier_svm():
 
 
 def test_classifier_bert():
+    """
+    Fit classification classifier.
+
+    Args:
+    """
     if classifiers.is_bert_available():
         train_df = classifiers.read_file(
             datadownloader.sample_datasets.sample_train

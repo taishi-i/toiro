@@ -14,20 +14,50 @@ from .downloader_utils import get_resource_dir
 
 
 def _extract_tarfile(filename, target_dir):
+    """
+    Extract a tar.
+
+    Args:
+        filename: (str): write your description
+        target_dir: (str): write your description
+    """
     with tarfile.open(filename, 'r:*') as tar:
         tar.extractall(target_dir)
 
 
 def _shuffle_data(is_shuffle, data):
+    """
+    Shuffle the data.
+
+    Args:
+        is_shuffle: (bool): write your description
+        data: (array): write your description
+    """
     if is_shuffle:
         random.shuffle(data)
 
 
 def _max_count_data(max_count, data):
+    """
+    Return the number of data in a maximum number of data.
+
+    Args:
+        max_count: (int): write your description
+        data: (array): write your description
+    """
     return data[:max_count]
 
 
 def _split_train_dev_test(data, train_data=0.8, dev_data=0.1, test_data=0.1):
+    """
+    Split the test test dataset.
+
+    Args:
+        data: (array): write your description
+        train_data: (todo): write your description
+        dev_data: (todo): write your description
+        test_data: (todo): write your description
+    """
     total = train_data+dev_data+test_data
     if not total == 1.0:
         err_msg = f"The total of train/dev/test data: {total} must be 1."
@@ -44,6 +74,13 @@ def _split_train_dev_test(data, train_data=0.8, dev_data=0.1, test_data=0.1):
 
 
 def _check_correct_corpus_type(corpus_type, corpus_types):
+    """
+    Checks that the given corpus type.
+
+    Args:
+        corpus_type: (str): write your description
+        corpus_types: (str): write your description
+    """
     if corpus_type not in corpus_types:
         err_msg = f"{corpus_type} is not available. Choose from {corpus_types}"
         raise Exception(err_msg)
@@ -130,6 +167,12 @@ def load_corpus(corpus, n=None, is_shuffle=True, corpus_type=None,
 
 
 def __count_polarity(opinions):
+    """
+    Returns the number of the scores in a scores.
+
+    Args:
+        opinions: (todo): write your description
+    """
     posinega = {"positive": 1, "negative": -1}
     scores = [posinega.get(opinion["polarity"], 0) for opinion in opinions]
     score = sum(scores)

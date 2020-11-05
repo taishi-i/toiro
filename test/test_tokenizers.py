@@ -5,6 +5,11 @@ text = "Python で前処理を"
 
 
 def test_janome():
+    """
+    Tokenizes the tokenizer isjan.
+
+    Args:
+    """
     if tokenizers.is_janome_available():
         expected = ['Python', ' ', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_janome(text)
@@ -17,6 +22,11 @@ def test_janome():
 
 
 def test_nagisa():
+    """
+    Tokenize the nagisa exists.
+
+    Args:
+    """
     if tokenizers.is_nagisa_available():
         expected = ['Python', '\u3000', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_nagisa(text)
@@ -30,6 +40,11 @@ def test_nagisa():
 
 
 def test_sudachipy():
+    """
+    Test if the test token is a test.
+
+    Args:
+    """
     if tokenizers.is_sudachipy_available():
         expected = ['Python', ' ', 'で', '前処理', 'を']
         words = tokenizers.tokenize_sudachipy(text)
@@ -43,6 +58,11 @@ def test_sudachipy():
 
 
 def test_mecab():
+    """
+    Tokenize the mecab.
+
+    Args:
+    """
     if tokenizers.is_mecab_available():
         expected = ['Python', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_mecab(text)
@@ -55,6 +75,11 @@ def test_mecab():
 
 
 def test_spacy():
+    """
+    Test if spacy spacy spacy.
+
+    Args:
+    """
     if tokenizers.is_spacy_available():
         expected = ['Python', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_spacy(text)
@@ -67,6 +92,11 @@ def test_spacy():
 
 
 def test_ginza():
+    """
+    Check if the test tokenizer.
+
+    Args:
+    """
     if tokenizers.is_ginza_available():
         expected = ['Python', 'で', '前処理', 'を']
         words = tokenizers.tokenize_ginza(text)
@@ -79,6 +109,11 @@ def test_ginza():
 
 
 def test_kytea():
+    """
+    Test if the tetea exists.
+
+    Args:
+    """
     if tokenizers.is_kytea_available():
         expected = ['Python', ' ', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_kytea(text)
@@ -90,6 +125,11 @@ def test_kytea():
 
 
 def test_jumanpp():
+    """
+    Test if the juman token.
+
+    Args:
+    """
     if tokenizers.is_jumanpp_available():
         expected = ['Python', '\u3000', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_jumanpp(text)
@@ -102,6 +142,11 @@ def test_jumanpp():
 
 
 def test_sentencepiece():
+    """
+    Returns the sentence sentence.
+
+    Args:
+    """
     if tokenizers.is_sentencepiece_available():
         expected = ['▁', 'P', 'y', 'th', 'on', '▁', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_sentencepiece(text)
@@ -118,6 +163,11 @@ def test_sentencepiece():
 
 
 def test_fugashi_ipadic():
+    """
+    Test if ipadic ipadic ipadic ipadic.
+
+    Args:
+    """
     if tokenizers.is_fugashi_ipadic_available():
         expected = ['Python', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_fugashi_ipadic(text)
@@ -130,6 +180,11 @@ def test_fugashi_ipadic():
 
 
 def test_tinysegmenter():
+    """
+    Test if the next token in - wordser.
+
+    Args:
+    """
     if tokenizers.is_tinysegmenter_available():
         expected = ['Python', ' ', 'で', '前処', '理', 'を']
         words = tokenizers.tokenize_tinysegmenter(text)
@@ -142,6 +197,11 @@ def test_tinysegmenter():
 
 
 def test_fugashi_unidic():
+    """
+    Decorizes unidic.
+
+    Args:
+    """
     if tokenizers.is_fugashi_unidic_available():
         expected = ['Python', 'で', '前', '処理', 'を']
         words = tokenizers.tokenize_fugashi_unidic(text)
@@ -154,12 +214,22 @@ def test_fugashi_unidic():
 
 
 def test_compare():
+    """
+    Compares the test reports.
+
+    Args:
+    """
     texts = [text]
     report = tokenizers.compare(texts)
     assert type(report) == dict
 
 
 def test_compare_from_file():
+    """
+    Test if the test sets of the results.
+
+    Args:
+    """
     filename = datadownloader.sample_datasets.sample_txt
     report = tokenizers.compare_from_file(filename)
     print(report)
@@ -167,6 +237,11 @@ def test_compare_from_file():
 
 
 def test_compare_from_file_with_disable_tokenizers():
+    """
+    Test if the test sets of test test set of the test.
+
+    Args:
+    """
     filename = datadownloader.sample_datasets.sample_txt
     report = tokenizers.compare_from_file(
         filename, disable_tokenizers=["nagisa"]
@@ -176,19 +251,40 @@ def test_compare_from_file_with_disable_tokenizers():
 
 
 def test_print_words():
+    """
+    Print the list of the words.
+
+    Args:
+    """
     tokenizers.print_words(text)
 
 
 def test_print_words_with_disable_tokenizers():
+    """
+    Prints out the tokenizers from the tokenizer.
+
+    Args:
+    """
     tokenizers.print_words(text, disable_tokenizers=["nagisa"])
 
 
 def char_tokenize(text):
+    """
+    Tokenize a string.
+
+    Args:
+        text: (str): write your description
+    """
     chars = list(text)
     return chars
 
 
 def test_compare_with_additional_tokenizers():
+    """
+    Compares two texts in the document.
+
+    Args:
+    """
     texts = [text]
 
     additional_tokenizers = {"char": char_tokenize}
@@ -200,6 +296,11 @@ def test_compare_with_additional_tokenizers():
 
 
 def test_compare_from_file_with_additional_tokenizers():
+    """
+    Compares two sets of - dataset.
+
+    Args:
+    """
     filename = datadownloader.sample_datasets.sample_txt
 
     additional_tokenizers = {"char": char_tokenize}
@@ -211,5 +312,10 @@ def test_compare_from_file_with_additional_tokenizers():
 
 
 def test_print_words_with_additional_tokenizers():
+    """
+    Prints out a list of words in the text.
+
+    Args:
+    """
     additional_tokenizers = {"char": char_tokenize}
     tokenizers.print_words(text, additional_tokenizers=additional_tokenizers)
