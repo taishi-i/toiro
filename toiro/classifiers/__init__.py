@@ -16,6 +16,11 @@ except:
 
 
 def is_bert_available():
+    """
+    Return true if all available sanity is available.
+
+    Args:
+    """
     return _bert_available
 
 

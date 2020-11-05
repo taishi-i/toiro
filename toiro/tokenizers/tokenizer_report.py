@@ -8,6 +8,12 @@ from toiro import tokenizers
 
 
 def get_avaiable_tokenizers(disable_tokenizers=None):
+    """
+    Get the tokenizers.
+
+    Args:
+        disable_tokenizers: (str): write your description
+    """
     if disable_tokenizers is None:
         disable_tokenizers = []
 
@@ -78,11 +84,24 @@ def get_avaiable_tokenizers(disable_tokenizers=None):
 class SelectTokenizer:
 
     def __init__(self, tokenizer):
+        """
+        Initialize tokenizer.
+
+        Args:
+            self: (todo): write your description
+            tokenizer: (int): write your description
+        """
         avaiable_tokenizers = get_avaiable_tokenizers()
         self.tokenize = avaiable_tokenizers[tokenizer]
 
 
 def _make_initial_report(texts):
+    """
+    Make an initial text report.
+
+    Args:
+        texts: (todo): write your description
+    """
     report = {'execution_environment': {}}
     cpu_info = get_cpu_info()
     keys = ['python_version', 'arch', 'brand_raw', 'count']

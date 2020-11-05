@@ -23,6 +23,14 @@ from toiro import classifiers
 
 class BERTBaseJapaneseModel(torch.nn.Module):
     def __init__(self, model_name, num_labels):
+        """
+        Initialize the classifier.
+
+        Args:
+            self: (todo): write your description
+            model_name: (str): write your description
+            num_labels: (int): write your description
+        """
         super().__init__()
         config = AutoConfig.from_pretrained(model_name, num_labels=num_labels)
         self.bert = AutoModel.from_pretrained(model_name, config=config)
@@ -34,6 +42,15 @@ class BERTBaseJapaneseModel(torch.nn.Module):
         self.dropout = torch.nn.Dropout(seq_classification_dropout)
 
     def forward(self, features, attention_mask=None, head_mask=None):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            features: (todo): write your description
+            attention_mask: (todo): write your description
+            head_mask: (todo): write your description
+        """
         assert attention_mask is not None, "attention mask is none"
         bert_output = self.bert(
             input_ids=features,
@@ -53,6 +70,17 @@ class ClassificationDataset(Dataset):
 
     def __init__(self,
                  tokenizer, label2id, max_seq_length, texts, labels=None):
+        """
+        Initialize a text.
+
+        Args:
+            self: (todo): write your description
+            tokenizer: (int): write your description
+            label2id: (str): write your description
+            max_seq_length: (int): write your description
+            texts: (list): write your description
+            labels: (dict): write your description
+        """
         self.tokenizer = tokenizer
         self.pad_vid = self.tokenizer.vocab["[PAD]"]
         self.label2id = label2id
@@ -61,9 +89,22 @@ class ClassificationDataset(Dataset):
         self.max_seq_length = max_seq_length
 
     def __len__(self):
+        """
+        Returns the length of the text.
+
+        Args:
+            self: (todo): write your description
+        """
         return len(self.texts)
 
     def __getitem__(self, index):
+        """
+        Get the labels for a given index.
+
+        Args:
+            self: (todo): write your description
+            index: (int): write your description
+        """
         text = self.texts[index]
         output_dict = self._from_text(text)
         if self.labels is not None:
@@ -75,6 +116,13 @@ class ClassificationDataset(Dataset):
         return output_dict
 
     def _from_text(self, text):
+        """
+        Convert text into a batch of sentences.
+
+        Args:
+            self: (todo): write your description
+            text: (str): write your description
+        """
         x_encoded = self.tokenizer.encode(
             text,
             add_special_tokens=True,
@@ -169,6 +217,20 @@ class BERTClassificationModel:
             train_df, dev_df,
             batch_size=16, max_seq_length=256, learning_rate=5e-5,
             epochs=1, log_dir=None, verbose=False):
+        """
+        Fit the model.
+
+        Args:
+            self: (todo): write your description
+            train_df: (array): write your description
+            dev_df: (array): write your description
+            batch_size: (int): write your description
+            max_seq_length: (int): write your description
+            learning_rate: (float): write your description
+            epochs: (todo): write your description
+            log_dir: (array): write your description
+            verbose: (bool): write your description
+        """
 
             start = time.time()
             config = {
@@ -249,6 +311,13 @@ class BERTClassificationModel:
                     pickle.dump([label2id, config], f)
 
     def predict(self, text):
+        """
+        Predict the class labels.
+
+        Args:
+            self: (array): write your description
+            text: (str): write your description
+        """
         if self.data_for_predict:
             x = self.data_for_predict._from_text(text)
         else:
@@ -262,6 +331,13 @@ class BERTClassificationModel:
         return pred_y
 
     def eval(self, test_df):
+        """
+        Evaluate the model on the test.
+
+        Args:
+            self: (todo): write your description
+            test_df: (todo): write your description
+        """
         test_Y = test_df[0]
         pred_Y = [self.predict(text) for text in test_df[1]]
 

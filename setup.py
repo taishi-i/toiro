@@ -11,6 +11,11 @@ classifiers = [
 
 
 def _long_description():
+    """
+    Read long description.
+
+    Args:
+    """
     readme = 'README.md'
     with open(readme, 'r') as f:
         long_description = f.read()

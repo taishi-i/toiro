@@ -6,6 +6,11 @@ from toiro import datadownloader
 
 
 def test_available_corpus():
+    """
+    This is a corpus.
+
+    Args:
+    """
     corpora = datadownloader.available_corpus()
     excepted = [
         'livedoor_news_corpus', 'yahoo_movie_reviews',
@@ -15,12 +20,22 @@ def test_available_corpus():
 
 
 def test_check_correct_corpus_type_error():
+    """
+    Check that the corpus of a corpus.
+
+    Args:
+    """
     with pytest.raises(Exception):
         corpus = ""
         datadownloader.download_corpus(corpus=corpus)
 
 
 def test_download_corpus():
+    """
+    Downloads and download and download. datadus.
+
+    Args:
+    """
     available_corpus = datadownloader.available_corpus()
     for corpus in available_corpus:
         datadownloader.download_corpus(corpus)
@@ -34,6 +49,11 @@ def test_download_corpus():
 
 
 def test_split_train_dev_test_error():
+    """
+    Split data set of test dataset.
+
+    Args:
+    """
     corpora = datadownloader.available_corpus()
     corpus = corpora[0]
     with pytest.raises(Exception):
@@ -47,6 +67,11 @@ def test_split_train_dev_test_error():
 
 
 def test_load_corpus():
+    """
+    Loads the corpus.
+
+    Args:
+    """
     available_corpus = datadownloader.available_corpus()
 
     num_corpus = {
