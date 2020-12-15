@@ -8,8 +8,7 @@ def test_classifier_svm():
     livedoor_corpus = corpora[0]
     datadownloader.download_corpus(livedoor_corpus)
     train_df, dev_df, test_df = datadownloader.load_corpus(
-        corpus=livedoor_corpus
-    )
+        corpus=livedoor_corpus)
 
     model = classifiers.SVMClassificationModel()
     model.fit(train_df, dev_df)
@@ -20,25 +19,22 @@ def test_classifier_svm():
 
     model.save(f"{livedoor_corpus}.pkl")
     model = classifiers.SVMClassificationModel(
-        model_file=f"{livedoor_corpus}.pkl"
-    )
+        model_file=f"{livedoor_corpus}.pkl")
 
-    text = "Python で前処理を"
+    text = "ITニュース Androidアプリ iPhoneアプリ"
     pred_y = model.predict(text)
 
-    expected = "dokujo-tsushin"
+    expected = "smax"
     assert pred_y == expected
 
 
 def test_classifier_bert():
     if classifiers.is_bert_available():
         train_df = classifiers.read_file(
-            datadownloader.sample_datasets.sample_train
-        )
+            datadownloader.sample_datasets.sample_train)
 
         dev_df = classifiers.read_file(
-            datadownloader.sample_datasets.sample_dev
-        )
+            datadownloader.sample_datasets.sample_dev)
 
         # test_df = classifiers.read_file(
         #     datadownloader.sample_datasets.sample_test
