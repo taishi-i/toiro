@@ -28,7 +28,7 @@ def _max_count_data(max_count, data):
 
 
 def _split_train_dev_test(data, train_data=0.8, dev_data=0.1, test_data=0.1):
-    total = train_data+dev_data+test_data
+    total = train_data + dev_data + test_data
     if not total == 1.0:
         err_msg = f"The total of train/dev/test data: {total} must be 1."
         raise Exception(err_msg)
@@ -38,8 +38,9 @@ def _split_train_dev_test(data, train_data=0.8, dev_data=0.1, test_data=0.1):
     num_test = int(len(data) * test_data)
 
     train = pd.DataFrame(data[:num_train])
-    dev = pd.DataFrame(data[num_train:num_train+num_dev])
-    test = pd.DataFrame(data[num_train+num_dev:num_train+num_dev+num_test])
+    dev = pd.DataFrame(data[num_train:num_train + num_dev])
+    test = pd.DataFrame(data[num_train + num_dev:num_train + num_dev +
+                             num_test])
     return train, dev, test
 
 
@@ -49,8 +50,14 @@ def _check_correct_corpus_type(corpus_type, corpus_types):
         raise Exception(err_msg)
 
 
-def load_corpus(corpus, n=None, is_shuffle=True, corpus_type=None,
-                train_data=0.8, dev_data=0.1, test_data=0.1, random_seed=1234):
+def load_corpus(corpus,
+                n=None,
+                is_shuffle=True,
+                corpus_type=None,
+                train_data=0.8,
+                dev_data=0.1,
+                test_data=0.1,
+                random_seed=1234):
     """
     Dataloader for selected corpus.
 
@@ -98,34 +105,44 @@ def load_corpus(corpus, n=None, is_shuffle=True, corpus_type=None,
     """
 
     if corpus == "amazon_reviews":
-        return load_amazon_reviews(
-            n=n, is_shuffle=is_shuffle,
-            train_data=train_data, dev_data=dev_data, test_data=test_data,
-            random_seed=random_seed)
+        return load_amazon_reviews(n=n,
+                                   is_shuffle=is_shuffle,
+                                   train_data=train_data,
+                                   dev_data=dev_data,
+                                   test_data=test_data,
+                                   random_seed=random_seed)
     elif corpus == "yahoo_movie_reviews":
         if corpus_type is None:
             corpus_type = "binary"
-        return load_yahoo_movie_reviews(
-            n=n, is_shuffle=is_shuffle, corpus_type=corpus_type,
-            train_data=train_data, dev_data=dev_data, test_data=test_data,
-            random_seed=random_seed)
+        return load_yahoo_movie_reviews(n=n,
+                                        is_shuffle=is_shuffle,
+                                        corpus_type=corpus_type,
+                                        train_data=train_data,
+                                        dev_data=dev_data,
+                                        test_data=test_data,
+                                        random_seed=random_seed)
     elif corpus == "livedoor_news_corpus":
         if corpus_type is None:
             corpus_type = "title"
-        return load_livedoor_news_corpus(
-            n=n, is_shuffle=is_shuffle, corpus_type=corpus_type,
-            train_data=train_data, dev_data=dev_data, test_data=test_data,
-            random_seed=random_seed)
+        return load_livedoor_news_corpus(n=n,
+                                         is_shuffle=is_shuffle,
+                                         corpus_type=corpus_type,
+                                         train_data=train_data,
+                                         dev_data=dev_data,
+                                         test_data=test_data,
+                                         random_seed=random_seed)
     elif corpus == "chABSA_dataset":
-        return load_chABSA_dataset(
-            n=n, is_shuffle=is_shuffle,
-            train_data=train_data, dev_data=dev_data, test_data=test_data,
-            random_seed=random_seed)
+        return load_chABSA_dataset(n=n,
+                                   is_shuffle=is_shuffle,
+                                   train_data=train_data,
+                                   dev_data=dev_data,
+                                   test_data=test_data,
+                                   random_seed=random_seed)
     else:
-        err_msg = " ".join(
-            [f"{corpus} does not exist.",
-            f"Use datadownloader.download_corpus('{corpus}') ."]
-        )
+        err_msg = " ".join([
+            f"{corpus} does not exist.",
+            f"Use datadownloader.download_corpus('{corpus}') ."
+        ])
         raise Exception(err_msg)
 
 
@@ -142,8 +159,11 @@ def __count_polarity(opinions):
         return "neutral"
 
 
-def load_chABSA_dataset(n=None, is_shuffle=True,
-                        train_data=0.8, dev_data=0.1, test_data=0.1,
+def load_chABSA_dataset(n=None,
+                        is_shuffle=True,
+                        train_data=0.8,
+                        dev_data=0.1,
+                        test_data=0.1,
                         random_seed=1234):
     """
     Dataloader for chABSA dataset.
@@ -209,14 +229,18 @@ def load_chABSA_dataset(n=None, is_shuffle=True,
 
     _shuffle_data(is_shuffle, data)
     data = _max_count_data(n, data)
-    train_df, dev_df, test_df = _split_train_dev_test(
-        data, train_data=train_data, dev_data=dev_data, test_data=test_data
-    )
+    train_df, dev_df, test_df = _split_train_dev_test(data,
+                                                      train_data=train_data,
+                                                      dev_data=dev_data,
+                                                      test_data=test_data)
     return train_df, dev_df, test_df
 
 
-def load_amazon_reviews(n=None, is_shuffle=True,
-                        train_data=0.8, dev_data=0.1, test_data=0.1,
+def load_amazon_reviews(n=None,
+                        is_shuffle=True,
+                        train_data=0.8,
+                        dev_data=0.1,
+                        test_data=0.1,
                         random_seed=1234):
     """
     Dataloader for amazon reviews.
@@ -278,14 +302,19 @@ def load_amazon_reviews(n=None, is_shuffle=True,
 
     _shuffle_data(is_shuffle, data)
     data = _max_count_data(n, data)
-    train_df, dev_df, test_df = _split_train_dev_test(
-        data, train_data=train_data, dev_data=dev_data, test_data=test_data
-    )
+    train_df, dev_df, test_df = _split_train_dev_test(data,
+                                                      train_data=train_data,
+                                                      dev_data=dev_data,
+                                                      test_data=test_data)
     return train_df, dev_df, test_df
 
 
-def load_yahoo_movie_reviews(n=None, is_shuffle=True, corpus_type="binary",
-                             train_data=0.8, dev_data=0.1, test_data=0.1,
+def load_yahoo_movie_reviews(n=None,
+                             is_shuffle=True,
+                             corpus_type="binary",
+                             train_data=0.8,
+                             dev_data=0.1,
+                             test_data=0.1,
                              random_seed=1234):
     """
     Dataloader for yahoo_movie_reviews.
@@ -341,15 +370,13 @@ def load_yahoo_movie_reviews(n=None, is_shuffle=True, corpus_type="binary",
         if not os.path.exists(yahoo_movie_reviews_dir):
             _extract_tarfile(filepath, resource_dir)
 
-        yahoo_movie_reviews_json = os.path.join(
-            yahoo_movie_reviews_dir, "yahoo-movie-reviews.json"
-        )
+        yahoo_movie_reviews_json = os.path.join(yahoo_movie_reviews_dir,
+                                                "yahoo-movie-reviews.json")
         if not os.path.exists(yahoo_movie_reviews_json):
             err_msg = " ".join([
                 f"{yahoo_movie_reviews_json} does not exist. ",
                 f"Use datadownloader.download_corpus('{corpus}') ."
-                ]
-            )
+            ])
             raise Exception(err_msg)
 
         data = []
@@ -378,8 +405,7 @@ def load_yahoo_movie_reviews(n=None, is_shuffle=True, corpus_type="binary",
                     label2texts[label] = [text]
 
             num_data = min(
-                [len(label2texts[key]) for key in label2texts.keys()]
-            )
+                [len(label2texts[key]) for key in label2texts.keys()])
 
             data = []
             for key in label2texts.keys():
@@ -390,20 +416,26 @@ def load_yahoo_movie_reviews(n=None, is_shuffle=True, corpus_type="binary",
         _shuffle_data(is_shuffle, data)
         data = _max_count_data(n, data)
         train_df, dev_df, test_df = _split_train_dev_test(
-            data, train_data=train_data, dev_data=dev_data, test_data=test_data
-        )
+            data,
+            train_data=train_data,
+            dev_data=dev_data,
+            test_data=test_data)
         return train_df, dev_df, test_df
 
     else:
-        err_msg = " ".join(
-            [f"{corpus} does not exist.",
-            f"Use datadownloader.download_corpus('{corpus}') ."]
-        )
+        err_msg = " ".join([
+            f"{corpus} does not exist.",
+            f"Use datadownloader.download_corpus('{corpus}') ."
+        ])
         raise Exception(err_msg)
 
 
-def load_livedoor_news_corpus(n=None, is_shuffle=True, corpus_type="title",
-                              train_data=0.8, dev_data=0.1, test_data=0.1,
+def load_livedoor_news_corpus(n=None,
+                              is_shuffle=True,
+                              corpus_type="title",
+                              train_data=0.8,
+                              dev_data=0.1,
+                              test_data=0.1,
                               random_seed=1234):
     """
     Dataloader for livedoor news corpus.
@@ -450,15 +482,8 @@ def load_livedoor_news_corpus(n=None, is_shuffle=True, corpus_type="title",
     random.seed(random_seed)
     corpus = "livedoor_news_corpus"
     label_names = [
-        "dokujo-tsushin",
-        "kaden-channel",
-        "movie-enter",
-        "smax",
-        "topic-news",
-        "it-life-hack",
-        "livedoor-homme",
-        "peachy",
-        "sports-watch"
+        "dokujo-tsushin", "kaden-channel", "movie-enter", "smax", "topic-news",
+        "it-life-hack", "livedoor-homme", "peachy", "sports-watch"
     ]
 
     corpora_dict = get_corpora_dict()
@@ -499,13 +524,171 @@ def load_livedoor_news_corpus(n=None, is_shuffle=True, corpus_type="title",
         _shuffle_data(is_shuffle, data)
         data = _max_count_data(n, data)
         train_df, dev_df, test_df = _split_train_dev_test(
-            data, train_data=train_data, dev_data=dev_data, test_data=test_data
-        )
+            data,
+            train_data=train_data,
+            dev_data=dev_data,
+            test_data=test_data)
         return train_df, dev_df, test_df
 
     else:
-        err_msg = " ".join(
-            [f"{corpus} does not exist.",
-            f"Use datadownloader.download_corpus('{corpus}') ."]
-        )
+        err_msg = " ".join([
+            f"{corpus} does not exist.",
+            f"Use datadownloader.download_corpus('{corpus}') ."
+        ])
         raise Exception(err_msg)
+
+
+def save_corpus_as_file(data,
+                        filename,
+                        save_dir=None,
+                        delimiter='\t',
+                        switch_columns=False,
+                        header=False,
+                        index=False):
+    """
+    Save pandas DataFrame as txt file.
+
+    Parameters
+    ----------
+    corpus : str
+        The corpus
+
+    filename : str
+        The output filename
+
+    save_dir : str
+        The directory where corpus is saved
+
+    delimiter : str
+        Characters used to separate label and text
+
+    switch_columns : bool
+        If true,
+        the text is the first column and the label is the second column.
+
+    header : False
+        If true, Add header to output file
+
+    index : False
+        If true, Add index to output file
+
+    Examples
+    --------
+    >>> datadownloader.save_corpus_save_file(train_df, "sample.train")
+
+    """
+    if str(type(data)) == "<class 'pandas.core.frame.DataFrame'>":
+        if switch_columns:
+            data = data.reindex(columns=[1, 0])
+        if save_dir:
+            filename = os.path.join(save_dir, filename)
+
+        data.to_csv(filename, sep=delimiter, header=header, index=index)
+    else:
+        err_msg = "Can't save data. data must be pandas.core.frame.DataFrame."
+        raise Exception(err_msg)
+
+
+def save_corpus(corpus,
+                save_dir=None,
+                n=None,
+                is_shuffle=True,
+                corpus_type=None,
+                train_data=0.8,
+                dev_data=0.1,
+                test_data=0.1,
+                random_seed=1234,
+                delimiter='\t',
+                switch_columns=False,
+                header=False,
+                index=False):
+    """
+    Dataloader for selected corpus.
+    After downloading the corpus, Save it as txt file.
+
+    The data is pre-processed and split into training data,
+    development data and test data.
+
+    Parameters
+    ----------
+    corpus : str
+        The corpus
+
+    n : int
+        The number of datasets
+
+    save_dir : str
+        The directory where corpus is saved
+
+    is_shuffle : bool
+        If true, shuffle the dataset
+
+    train_data : float
+        Percentage of training data
+
+    dev_data : float
+        Percentage of development data
+
+    test_data : float
+        Percentage of test data
+
+    random_seed : int
+        Random seed for shuffle datasets
+
+    delimiter : str
+        Characters used to separate label and text
+
+    switch_columns : bool
+        If true,
+        the text is the first column and the label is the second column.
+
+    header : False
+        If true, Add header to output file
+
+    index : False
+        If true, Add index to output file
+
+    Examples
+    --------
+    >>> datadownloader.save_corpus('livedoor_news_corpus')
+
+    """
+
+    # load corpus as pandas DataFrame
+    train_df, test_df, dev_df = load_corpus(corpus=corpus,
+                                            n=n,
+                                            is_shuffle=is_shuffle,
+                                            corpus_type=corpus_type,
+                                            train_data=train_data,
+                                            dev_data=dev_data,
+                                            test_data=test_data,
+                                            random_seed=random_seed)
+    # save train data
+    train_file = f"{corpus}.train"
+    save_corpus_as_file(data=train_df,
+                        filename=train_file,
+                        save_dir=save_dir,
+                        delimiter=delimiter,
+                        switch_columns=switch_columns,
+                        header=header,
+                        index=index)
+
+    # save dev data
+    dev_file = f"{corpus}.dev"
+    save_corpus_as_file(data=dev_df,
+                        filename=dev_file,
+                        save_dir=save_dir,
+                        delimiter=delimiter,
+                        switch_columns=switch_columns,
+                        header=header,
+                        index=index)
+
+    # save test data
+    test_file = f"{corpus}.test"
+    save_corpus_as_file(data=test_df,
+                        filename=test_file,
+                        save_dir=save_dir,
+                        delimiter=delimiter,
+                        switch_columns=switch_columns,
+                        header=header,
+                        index=index)

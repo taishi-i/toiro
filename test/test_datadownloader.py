@@ -8,8 +8,8 @@ from toiro import datadownloader
 def test_available_corpus():
     corpora = datadownloader.available_corpus()
     excepted = [
-        'livedoor_news_corpus', 'yahoo_movie_reviews',
-        'amazon_reviews', 'chABSA_dataset'
+        'livedoor_news_corpus', 'yahoo_movie_reviews', 'amazon_reviews',
+        'chABSA_dataset'
     ]
     assert corpora == excepted
 
@@ -42,39 +42,52 @@ def test_split_train_dev_test_error():
         test_data = 0.1
         train_df, dev_df, test_df = datadownloader.load_corpus(
             corpus=corpus,
-            train_data=train_data, dev_data=dev_data, test_data=test_data
-        )
+            train_data=train_data,
+            dev_data=dev_data,
+            test_data=test_data)
 
 
 def test_load_corpus():
     available_corpus = datadownloader.available_corpus()
 
     num_corpus = {
-        'livedoor_news_corpus': {'train': 5900, 'dev': 737, 'test': 737},
-        'yahoo_movie_reviews': {'train': 72956, 'dev': 9119, 'test': 9119},
-        'amazon_reviews': {'train': 209944, 'dev': 26243, 'test': 26243},
-        'chABSA_dataset': {'train': 4895, 'dev': 611, 'test': 611}
+        'livedoor_news_corpus': {
+            'train': 5900,
+            'dev': 737,
+            'test': 737
+        },
+        'yahoo_movie_reviews': {
+            'train': 72956,
+            'dev': 9119,
+            'test': 9119
+        },
+        'amazon_reviews': {
+            'train': 209944,
+            'dev': 26243,
+            'test': 26243
+        },
+        'chABSA_dataset': {
+            'train': 4895,
+            'dev': 611,
+            'test': 611
+        }
     }
 
     for corpus in available_corpus:
         if corpus == 'livedoor_news_corpus':
             train_df, dev_df, test_df = datadownloader.load_corpus(
-                corpus=corpus
-            )
+                corpus=corpus)
 
         elif corpus == 'yahoo_movie_reviews':
             train_df, dev_df, test_df = datadownloader.load_corpus(
-                corpus=corpus, corpus_type='original'
-            )
+                corpus=corpus, corpus_type='original')
 
         elif corpus == 'amazon_reviews':
             train_df, dev_df, test_df = datadownloader.load_corpus(
-                corpus=corpus
-            )
+                corpus=corpus)
         elif corpus == 'chABSA_dataset':
             train_df, dev_df, test_df = datadownloader.load_corpus(
-                corpus=corpus
-            )
+                corpus=corpus)
 
         num_data = num_corpus[corpus]
         excepted_train = num_data['train']
@@ -84,3 +97,21 @@ def test_load_corpus():
         assert len(train_df) == excepted_train
         assert len(dev_df) == excepted_dev
         assert len(test_df) == excepted_test
+
+
+def test_save_corpus():
+    available_corpus = datadownloader.available_corpus()
+    for corpus in available_corpus:
+        datadownloader.save_corpus(corpus,
+                                   save_dir=None,
+                                   n=1000,
+                                   is_shuffle=True,
+                                   corpus_type=None,
+                                   train_data=0.8,
+                                   dev_data=0.1,
+                                   test_data=0.1,
+                                   random_seed=1234,
+                                   delimiter=',',
+                                   switch_columns=True,
+                                   header=False,
+                                   index=False)
