@@ -15,8 +15,8 @@ from .downloader_utils import get_resource_dir
 
 def _check_path(path):
     path = os.path.normpath(path)
-    if path.startswith("/"):
-        raise f"found insecure absolute path {path}"
+    # if path.startswith("/"):
+    #     raise f"found insecure absolute path {path}"
     if path.startswith("../"):
         raise f"found insecure relative path {path}"
 
