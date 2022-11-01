@@ -47,10 +47,10 @@ def get_avaiable_tokenizers(disable_tokenizers=None):
         if _kytea not in disable_tokenizers:
             _tokenizers[_kytea] = tokenizers.tokenize_kytea
 
-    if tokenizers.is_jumanpp_available():
-        _jumanpp = 'jumanpp'
-        if _jumanpp not in disable_tokenizers:
-            _tokenizers[_jumanpp] = tokenizers.tokenize_jumanpp
+    # if tokenizers.is_jumanpp_available():
+    #     _jumanpp = 'jumanpp'
+    #     if _jumanpp not in disable_tokenizers:
+    #         _tokenizers[_jumanpp] = tokenizers.tokenize_jumanpp
 
     if tokenizers.is_sentencepiece_available():
         _sentencepiece = 'sentencepiece'

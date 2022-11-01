@@ -89,16 +89,16 @@ def test_kytea():
         assert tokenizers.is_kytea_available() is False
 
 
-def test_jumanpp():
-    if tokenizers.is_jumanpp_available():
-        expected = ['Python', '\u3000', 'で', '前', '処理', 'を']
-        words = tokenizers.tokenize_jumanpp(text)
-        assert words == expected
+# def test_jumanpp():
+#     if tokenizers.is_jumanpp_available():
+#         expected = ['Python', '\u3000', 'で', '前', '処理', 'を']
+#         words = tokenizers.tokenize_jumanpp(text)
+#         assert words == expected
 
-        tokens = tokenizers.original_jumanpp(text)
-        assert str(type(tokens)) == "<class 'pyknp.juman.mlist.MList'>"
-    else:
-        assert tokenizers.is_jumanpp_available() is False
+#         tokens = tokenizers.original_jumanpp(text)
+#         assert str(type(tokens)) == "<class 'pyknp.juman.mlist.MList'>"
+#     else:
+#         assert tokenizers.is_jumanpp_available() is False
 
 
 def test_sentencepiece():
