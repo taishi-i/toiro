@@ -20,6 +20,12 @@ def test_check_correct_corpus_type_error():
         datadownloader.download_corpus(corpus=corpus)
 
 
+def test_check_CVE20074559():
+    with pytest.raises(Exception):
+        corpus = "../../..livedoor_news_corpus"
+        datadownloader.download_corpus(corpus=corpus)
+
+
 def test_download_corpus():
     available_corpus = datadownloader.available_corpus()
     for corpus in available_corpus:

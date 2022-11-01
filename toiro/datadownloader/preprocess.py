@@ -13,8 +13,17 @@ from .downloader_utils import get_corpora_dict
 from .downloader_utils import get_resource_dir
 
 
+def _check_path(path):
+    path = os.path.normpath(path)
+    if path.startswith("/"):
+        raise f"found insecure absolute path {path}"
+    if path.startswith("../"):
+        raise f"found insecure relative path {path}"
+
+
 def _extract_tarfile(filename, target_dir):
     with tarfile.open(filename, 'r:*') as tar:
+        _check_path(filename)
         tar.extractall(target_dir)
 
 
