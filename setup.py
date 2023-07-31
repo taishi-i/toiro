@@ -50,7 +50,7 @@ setup(name='toiro',
           'toiro.classifiers'
       ],
       install_requires=[
-          'requests', 'tqdm', 'pandas', 'sklearn', 'py-cpuinfo', 'janome'
+          'requests', 'tqdm', 'pandas', 'scikit-learn', 'py-cpuinfo', 'janome'
       ],
       extras_require={
           'all_tokenizers': extras_requires_tokenizers,
