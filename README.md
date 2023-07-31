@@ -49,7 +49,7 @@ pip install nagisa
 
 [mecab-python3](https://github.com/SamuraiT/mecab-python3)
 ```
-pip install mecab-python3==0.996.5
+pip install mecab-python3
 ```
 
 [GiNZA](https://github.com/megagonlabs/ginza)

@@ -4,7 +4,12 @@ classifiers = [
     'License :: OSI Approved :: MIT License', 'Natural Language :: Japanese',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8', 'Operating System :: Unix',
+    'Programming Language :: Python :: 3.8', 
+    'Programming Language :: Python :: 3.8', 
+    'Programming Language :: Python :: 3.9', 
+    'Programming Language :: Python :: 3.10', 
+    'Programming Language :: Python :: 3.11', 
+    'Operating System :: Unix',
     'Topic :: Text Processing :: Linguistic',
     'Topic :: Software Development :: Libraries :: Python Modules'
 ]
@@ -37,7 +42,7 @@ extras_requires_classifiers = ['torch', 'transformers', 'catalyst']
 
 setup(
     name='toiro',
-    version='0.0.8',
+    version='0.0.9',
     description='A comparison tool of Japanese tokenizers',
     author='Taishi Ikeda',
     author_email='taishi.ikeda.0323@gmail.com',
@@ -45,7 +50,7 @@ setup(
     long_description=_long_description(),
     keywords='Japanese NLP',
     url='https://github.com/taishi-i/toiro',
-    download_url='https://github.com/taishi-i/toiro/archive/0.0.8.tar.gz',
+    download_url='https://github.com/taishi-i/toiro/archive/0.0.9.tar.gz',
     packages=['toiro.datadownloader', 'toiro.tokenizers', 'toiro.classifiers'],
     install_requires=[
         'requests', 'tqdm', 'pandas', 'scikit-learn', 'py-cpuinfo', 'janome'
