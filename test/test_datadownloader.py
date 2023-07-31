@@ -7,9 +7,12 @@ from toiro import datadownloader
 
 def test_available_corpus():
     corpora = datadownloader.available_corpus()
+    # excepted = [
+    #     'livedoor_news_corpus', 'yahoo_movie_reviews', 'amazon_reviews',
+    #     'chABSA_dataset'
+    # ]
     excepted = [
-        'livedoor_news_corpus', 'yahoo_movie_reviews', 'amazon_reviews',
-        'chABSA_dataset'
+        'livedoor_news_corpus', 'yahoo_movie_reviews', 'chABSA_dataset'
     ]
     assert corpora == excepted
 
