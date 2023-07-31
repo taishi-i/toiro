@@ -4,7 +4,6 @@ toiro
 -----
 
 [![Python package](https://github.com/taishi-i/toiro/actions/workflows/python-package.yml/badge.svg)](https://github.com/taishi-i/toiro/actions/workflows/python-package.yml)
-![Python Package](https://github.com/taishi-i/toiro/workflows/Upload%20Python%20Package/badge.svg)
 [![PyPI](https://img.shields.io/pypi/v/toiro)](https://pypi.python.org/pypi/toiro)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/toiro)
 
