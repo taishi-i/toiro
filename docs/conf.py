@@ -17,11 +17,11 @@ sys.path.insert(0, os.path.abspath('../toiro'))
 # -- Project information -----------------------------------------------------
 
 project = 'toiro'
-copyright = '2020, Taishi Ikeda'
+copyright = '2025, Taishi Ikeda'
 author = 'Taishi Ikeda'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.9'
+release = '0.0.10'
 
 # -- General configuration ---------------------------------------------------
 
