@@ -1,7 +1,21 @@
-import imp
-import pkg_resources
+import sys
 
-imp.reload(pkg_resources)
+try:
+    import pkg_resources
+except ImportError:
+    pkg_resources = None
+
+if sys.version_info < (3, 12):
+    import imp
+    if pkg_resources is not None:
+        imp.reload(pkg_resources)
+else:
+    if pkg_resources is not None:
+        import importlib
+        importlib.reload(pkg_resources)
+    else:
+        import warnings
+        warnings.warn("pkg_resources not available on this Python version; skipping reload")
 
 
 try:
