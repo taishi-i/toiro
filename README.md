@@ -6,6 +6,7 @@ toiro
 [![Python package](https://github.com/taishi-i/toiro/actions/workflows/python-package.yml/badge.svg)](https://github.com/taishi-i/toiro/actions/workflows/python-package.yml)
 [![PyPI](https://img.shields.io/pypi/v/toiro)](https://pypi.python.org/pypi/toiro)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/toiro)
+[![RRs](https://img.shields.io/badge/PRs-welcome-brightgreen)](https://github.com/taishi-i/toiro/pulls)
 
 
 Toiro is a comparison tool of Japanese tokenizers.
