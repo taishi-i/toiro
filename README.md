@@ -97,6 +97,10 @@ pip install fugashi unidic-lite
 pip install tinysegmenter3
 ```
 
+[tiktoken](https://github.com/openai/tiktoken)
+```
+pip install tiktoken
+```
 
 </p>
 </details>
@@ -117,7 +121,7 @@ available_tokenizers = tokenizers.available_tokenizers()
 print(available_tokenizers)
 ```
 
-Toiro supports 12 different Japanese tokonizers. This is an example of adding SudachiPy and nagisa.
+Toiro supports 12 different Japanese tokonizers and 1 BPE tokenizer. This is an example of adding SudachiPy and nagisa.
 ```python
 {'nagisa': {'is_available': True, 'version': '0.2.7'},
  'janome': {'is_available': True, 'version': '0.3.10'},
@@ -130,7 +134,8 @@ Toiro supports 12 different Japanese tokonizers. This is an example of adding Su
  'sentencepiece': {'is_available': False, 'version': False},
  'fugashi-ipadic': {'is_available': False, 'version': False},
  'fugashi-unidic': {'is_available': False, 'version': False},
- 'tinysegmenter': {'is_available': False, 'version': False}}
+ 'tinysegmenter': {'is_available': False, 'version': False},
+ 'tiktoken': {'is_available': False, 'version': False}}
 ```
 
 Download the livedoor news corpus and compare the processing speed of tokenizers.
@@ -210,6 +215,8 @@ Compare the words segmented in tokenizers
 fugashi-ipadic: 都庁|所在地|は|新宿|区|。
 fugashi-unidic: 都庁|所在|地|は|新宿|区|。
  tinysegmenter: 都庁所|在地|は|新宿|区|。
+ tiktoken_gpt4o: 都|�|�|所在地|は|新|宿|区|。
+ tiktoken_gpt5: 都|�|�|所在地|は|新|宿|区|。
 ```
 
 </p>
@@ -225,9 +232,3 @@ The slides at PyCon JP 2020
 Tutorials in Japanese
 - [01_getting_started_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/01_getting_started_ja.ipynb)
 - [05_svm_vs_bert_benchmarking_application_tasks_ja.ipynb](https://github.com/taishi-i/toiro/blob/master/examples/05_svm_vs_bert_benchmarking_application_tasks_ja.ipynb)
-
-
-Contributing
-------------
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
