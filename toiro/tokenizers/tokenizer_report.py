@@ -72,6 +72,15 @@ def get_avaiable_tokenizers(disable_tokenizers=None):
         if _tinysegmenter not in disable_tokenizers:
             _tokenizers[_tinysegmenter] = tokenizers.tokenize_tinysegmenter
 
+    if tokenizers.is_tiktoken_available():
+        _tiktoken_gpt4o = 'tiktoken_gpt4o'
+        if _tiktoken_gpt4o not in disable_tokenizers:
+            _tokenizers[_tiktoken_gpt4o] = tokenizers.tokenize_tiktoken_gpt4o
+
+        _tiktoken_gpt5 = 'tiktoken_gpt5'
+        if _tiktoken_gpt5 not in disable_tokenizers:
+            _tokenizers[_tiktoken_gpt5] = tokenizers.tokenize_tiktoken_gpt5
+
     return _tokenizers
 
 

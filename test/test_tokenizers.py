@@ -153,6 +153,27 @@ def test_fugashi_unidic():
         tokenizers.is_fugashi_unidic_available() is False
 
 
+def test_tiktoken():
+    if tokenizers.is_tiktoken_available():
+        expected_gpt4o = ['Python', ' ', 'で', '前', '処', '理', 'を']
+        words_gpt4o = tokenizers.tokenize_tiktoken_gpt4o(text)
+        assert words_gpt4o == expected_gpt4o
+
+        tokens_gpt4o = tokenizers.original_tiktoken_gpt4o(text)
+        assert type(tokens_gpt4o) == list
+
+        expected_gpt5 = ['Python', ' ', 'で', '前', '処', '理', 'を']
+        words_gpt5 = tokenizers.tokenize_tiktoken_gpt5(text)
+        assert words_gpt5 == expected_gpt5
+
+        tokens_gpt5 = tokenizers.original_tiktoken_gpt5(text)
+        assert type(tokens_gpt5) == list
+
+    else:
+        tokenizers.is_tiktoken_available() is False
+
+
+
 def test_compare():
     texts = [text]
     report = tokenizers.compare(texts)

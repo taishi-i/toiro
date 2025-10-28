@@ -137,6 +137,15 @@ except:
     _fugashi_unidic_version = False
 
 
+try:
+    import tiktoken
+    _tiktoken_available = True
+    _tiktoken_version = tiktoken.__version__
+except:
+    _tiktoken_available = False
+    _tiktoken_version = False
+
+
 def is_mecab_available():
     """
     Check if the library is available.
@@ -392,6 +401,29 @@ def is_fugashi_unidic_available():
     return _fugashi_unidic_available
 
 
+def is_tiktoken_available():
+    """
+    Check if the library is available.
+
+    This function checks if sentencepiece is available in your environment
+    and returns the result as a bool value.
+
+    Returns
+    -------
+    _tiktoken_available : bool
+        If True, tiktoken is available in your environment.
+
+    Examples
+    --------
+    >>> tokenizers.is_tiktoken_available()
+    True
+
+    """
+
+    return _tiktoken_available
+
+
+
 def available_tokenizers():
     """
     Return a list of available libraries.
@@ -455,6 +487,10 @@ def available_tokenizers():
         "fugashi-unidic": {
             "is_available": is_fugashi_unidic_available(),
             "version": _fugashi_unidic_version
+        },
+        "tiktoken": {
+            "is_available": is_tiktoken_available(),
+            "version": _tiktoken_available
         }
     }
     return available_tokenizers_dict

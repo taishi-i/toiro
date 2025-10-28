@@ -11,6 +11,7 @@ from .tokenizer_utils import (
     is_fugashi_ipadic_available,
     is_tinysegmenter_available,
     is_fugashi_unidic_available,
+    is_tiktoken_available,
     available_tokenizers
 )
 
@@ -73,6 +74,12 @@ if is_tinysegmenter_available():
 if is_fugashi_unidic_available():
     from .tokenizer_fugashi_unidic import tokenize as tokenize_fugashi_unidic
     from .tokenizer_fugashi_unidic import original_usage as original_fugashi_unidic
+
+if is_tiktoken_available():
+    from .tokenizer_tiktoken import tokenize_gpt4o as tokenize_tiktoken_gpt4o
+    from .tokenizer_tiktoken import original_usage_gpt4o as original_tiktoken_gpt4o
+    from .tokenizer_tiktoken import tokenize_gpt5 as tokenize_tiktoken_gpt5
+    from .tokenizer_tiktoken import original_usage_gpt5 as original_tiktoken_gpt5
 
 
 from .tokenizer_report import (
