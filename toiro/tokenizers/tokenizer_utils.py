@@ -1,4 +1,6 @@
 import sys
+from importlib import metadata
+
 
 try:
     import pkg_resources
@@ -140,7 +142,7 @@ except:
 try:
     import tiktoken
     _tiktoken_available = True
-    _tiktoken_version = tiktoken.__version__
+    _tiktoken_version = str(metadata.version("tiktoken"))
 except:
     _tiktoken_available = False
     _tiktoken_version = False
