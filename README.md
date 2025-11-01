@@ -25,7 +25,7 @@ It also provides useful functions for natural language processing in Japanese.
 Installation
 ------------
 
-Python 3.6+ is required. You can install toiro with the following command.
+Python 3.10+ is required. You can install toiro with the following command.
 [Janome](https://github.com/mocobeta/janome) is included in the default installation.
 ```bash
 pip install toiro

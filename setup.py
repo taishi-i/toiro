@@ -2,11 +2,6 @@ from setuptools import setup
 
 classifiers = [
     'License :: OSI Approved :: MIT License', 'Natural Language :: Japanese',
-    'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.9',
     'Programming Language :: Python :: 3.10',
     'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: 3.12',
@@ -64,6 +59,6 @@ setup(
     },
     classifiers=classifiers,
     include_package_data=True,
-    python_requires='>=3.6.0',
+    python_requires='>=3.10.0',
     setup_requires=['pytest-runner'],
     tests_require=['pytest', 'pytest-cov'])
