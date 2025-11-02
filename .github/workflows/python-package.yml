@@ -20,6 +20,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
         pip install .
+        pip install tiktoken
     - name: Test with pytest
       run: |
         pytest
