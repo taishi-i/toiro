@@ -85,7 +85,7 @@ try:
     import Mykytea
     mk = Mykytea.Mykytea("")
     _kytea_available = True
-    _kytea_version = "0.1.5"
+    _kytea_version = str(metadata.version("Mykytea"))
 except:
     _kytea_available = False
     _kytea_version = False
@@ -95,7 +95,7 @@ try:
     from pyknp import Juman
     jumanpp = Juman()
     _jumanpp_available = True
-    _jumanpp_version = "0.4.1"
+    _jumanpp_version = str(metadata.version("pyknp"))
 except:
     _jumanpp_available = False
     _jumanpp_version = False
@@ -104,7 +104,7 @@ except:
 try:
     import sentencepiece as spm
     _sentencepiece_available = True
-    _sentencepiece_version = "0.1.91"
+    _sentencepiece_version = str(metadata.version("sentencepiece"))
 except:
     _sentencepiece_available = False
     _sentencepiece_version = False
@@ -114,7 +114,7 @@ try:
     import ipadic
     import fugashi
     _fugashi_ipadic_available = True
-    _fugashi_ipadic_version = "1.0.4"
+    _fugashi_ipadic_version = str(metadata.version("fugashi"))
 except:
     _fugashi_ipadic_available = False
     _fugashi_ipadic_version = False
@@ -123,7 +123,7 @@ except:
 try:
     import tinysegmenter
     _tinysegmenter_available = True
-    _tinysegmenter_version = "0.1.0"
+    _tinysegmenter_version = str(metadata.version("tinysegmenter"))
 except:
     _tinysegmenter_available = False
     _tinysegmenter_version = False
@@ -133,7 +133,7 @@ try:
     import fugashi
     import unidic_lite
     _fugashi_unidic_available = True
-    _fugashi_unidic_version = "1.0.4"
+    _fugashi_unidic_version = str(metadata.version("fugashi"))
 except:
     _fugashi_unidic_available = False
     _fugashi_unidic_version = False
