@@ -29,7 +29,11 @@ _CORPORA_DICT = {
         {
             "url": "https://s3-ap-northeast-1.amazonaws.com/dev.tech-sketch.jp/chakki/public/chABSA-dataset.zip",
             "filename": "chABSA-dataset.zip"
-        }
+        },
+    "taishi-i/awesome-japanese-nlp-classification-dataset": {
+        "url": None,
+        "filename": None
+    }
 }
 
 

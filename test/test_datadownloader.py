@@ -9,7 +9,8 @@ def test_available_corpus():
     corpora = datadownloader.available_corpus()
     excepted = [
         'livedoor_news_corpus', 'yahoo_movie_reviews',
-        'amazon_reviews', 'chABSA_dataset'
+        'amazon_reviews', 'chABSA_dataset',
+        'taishi-i/awesome-japanese-nlp-classification-dataset'
     ]
     assert corpora == excepted
 

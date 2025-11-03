@@ -50,7 +50,7 @@ setup(
     download_url='https://github.com/taishi-i/toiro/archive/0.0.11.tar.gz',
     packages=['toiro.datadownloader', 'toiro.tokenizers', 'toiro.classifiers'],
     install_requires=[
-        'requests', 'tqdm', 'pandas', 'scikit-learn', 'py-cpuinfo', 'janome'
+        'requests', 'tqdm', 'pandas', 'scikit-learn', 'py-cpuinfo', 'janome', 'datasets'
     ],
     extras_require={
         'all_tokenizers': extras_requires_tokenizers,

@@ -6,8 +6,10 @@ import gzip
 import random
 import tarfile
 import zipfile
+import warnings
 
 import pandas as pd
+from datasets import load_dataset
 
 from .downloader_utils import get_corpora_dict
 from .downloader_utils import get_resource_dir
@@ -121,6 +123,13 @@ def load_corpus(corpus, n=None, is_shuffle=True, corpus_type=None,
             n=n, is_shuffle=is_shuffle,
             train_data=train_data, dev_data=dev_data, test_data=test_data,
             random_seed=random_seed)
+    elif corpus == "taishi-i/awesome-japanese-nlp-classification-dataset":
+        warnings.warn(
+            "In this dataset, all parameters are ignored.",
+            UserWarning
+        )
+        return load_awesome_japanese_nlp_classification_dataset()
+
     else:
         err_msg = " ".join(
             [f"{corpus} does not exist.",
@@ -509,3 +518,46 @@ def load_livedoor_news_corpus(n=None, is_shuffle=True, corpus_type="title",
             f"Use datadownloader.download_corpus('{corpus}') ."]
         )
         raise Exception(err_msg)
+
+def load_awesome_japanese_nlp_classification_dataset():
+    """
+    Dataloader for taishi-i/awesome-japanese-nlp-classification-dataset.
+
+    The data is pre-processed and split into training data,
+    development data and test data.
+
+    Parameters
+    ----------
+    This function takes no parameters.
+
+    Returns
+    -------
+    train_df : pandas.core.frame.DataFrame
+        The training data
+
+    dev_df : pandas.core.frame.DataFrame
+        The development data
+
+    test_df : pandas.core.frame.DataFrame
+        The test data
+    """
+    dataset = load_dataset(
+        "taishi-i/awesome-japanese-nlp-classification-dataset"
+    )
+
+    def to_df(dset):
+        return (
+            dset.select_columns(["label", "text"])
+            .to_pandas()
+            .reset_index(drop=True)
+        )
+
+    train_df, dev_df, test_df = (
+        to_df(dataset[s])
+        for s in ("train", "validation", "test")
+    )
+    train_df.columns = [0, 1]
+    dev_df.columns = [0, 1]
+    test_df.columns = [0, 1]
+
+    return train_df, dev_df, test_df
