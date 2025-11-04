@@ -21,6 +21,7 @@ jobs:
         pip install pytest
         pip install .
         pip install tiktoken
+        pip install nagisa
     - name: Test with pytest
       run: |
         pytest
