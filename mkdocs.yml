@@ -48,7 +48,7 @@ plugins:
         paths:
         - .
 - i18n:
-    default_language: ja
+    docs_structure: folder
     languages:
     - locale: ja
       default: true
@@ -67,18 +67,6 @@ plugins:
         API リファレンス: API Reference
         開発・貢献ガイド: Contributing
         ライセンス: License
-    nav_translations:
-      en:
-        はじめに: Home
-        インストール: Installation
-        クイックスタート: Quickstart
-        トークナイザ一覧: Tokenizers
-        コーパスとデータ: Corpora & Data
-        ベンチマーク: Benchmarks
-        API リファレンス: API Reference
-        開発・貢献ガイド: Contributing
-        ライセンス: License
-    docs_structure: folder
 markdown_extensions:
 - admonition
 - attr_list
