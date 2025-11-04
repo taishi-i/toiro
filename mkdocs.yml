@@ -1,0 +1,95 @@
+site_name: toiro
+site_description: 日本語トークナイザ比較ツール「toiro」の公式ドキュメント / Official docs of toiro
+site_author: taishi-i
+site_url: https://taishi-i.github.io/toiro/
+repo_url: https://github.com/taishi-i/toiro
+repo_name: taishi-i/toiro
+edit_uri: edit/master/docs/
+nav:
+- はじめに: index.md
+- インストール: installation.md
+- クイックスタート: quickstart.md
+- トークナイザ一覧: tokenizers.md
+- コーパスとデータ: corpora.md
+- ベンチマーク: benchmarks.md
+- API リファレンス: api.md
+- 開発・貢献ガイド: contributing.md
+- ライセンス: license.md
+theme:
+  name: material
+  language: ja
+  features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.top
+  - content.code.copy
+  - content.action.edit
+  - search.suggest
+  - search.highlight
+  palette:
+  - scheme: default
+    primary: indigo
+    accent: indigo
+  icon:
+    repo: fontawesome/brands/github
+plugins:
+- search
+- mkdocstrings:
+    default_handler: python
+    handlers:
+      python:
+        options:
+          docstring_style: google
+          show_source: true
+          show_root_heading: false
+          separate_signature: true
+          heading_level: 2
+        paths:
+        - .
+- i18n:
+    default_language: ja
+    languages:
+    - locale: ja
+      default: true
+      name: 日本語
+      build: true
+    - locale: en
+      name: English
+      build: true
+      nav_translations:
+        はじめに: Home
+        インストール: Installation
+        クイックスタート: Quickstart
+        トークナイザ一覧: Tokenizers
+        コーパスとデータ: Corpora & Data
+        ベンチマーク: Benchmarks
+        API リファレンス: API Reference
+        開発・貢献ガイド: Contributing
+        ライセンス: License
+    nav_translations:
+      en:
+        はじめに: Home
+        インストール: Installation
+        クイックスタート: Quickstart
+        トークナイザ一覧: Tokenizers
+        コーパスとデータ: Corpora & Data
+        ベンチマーク: Benchmarks
+        API リファレンス: API Reference
+        開発・貢献ガイド: Contributing
+        ライセンス: License
+    docs_structure: folder
+markdown_extensions:
+- admonition
+- attr_list
+- def_list
+- footnotes
+- pymdownx.details
+- pymdownx.emoji
+- pymdownx.extra
+- pymdownx.highlight
+- pymdownx.inlinehilite
+- pymdownx.superfences
+- pymdownx.snippets
+- tables
+watch:
+- toiro
