@@ -1,14 +1,14 @@
 # インストール
 
 ## 必須環境
-- Python 3.10+
+- Python 3.10 以上
 
 ## 基本インストール
 ```bash
 pip install toiro
 ```
 
-`toiro` は最小構成でインストールされ、デフォルトでは **Janome** が利用可能です。
+`toiro` は最小構成でインストールされ、デフォルトでは **[Janome](https://github.com/mocobeta/janome)** が利用可能です。
 
 ## 追加トークナイザの導入
 
@@ -19,13 +19,13 @@ pip install sudachipy sudachidict_core
 pip install nagisa
 ```
 
-その他の例:
+### その他のトークナイザ
 
 ```bash
 # MeCab (mecab-python3)
 pip install mecab-python3
 
-# GiNZA / spaCy日本語
+# GiNZA / spaCy 日本語
 pip install spacy ginza
 pip install "spacy[ja]"
 
@@ -47,12 +47,39 @@ pip install fugashi unidic-lite
 # TinySegmenter
 pip install tinysegmenter3
 
-# BPE: tiktoken
+# tiktoken（GPT-4o / GPT-5 用 BPE）
 pip install tiktoken
 ```
 
-すべてまとめて試したい場合は以下も便利です。
+!!! tip "すべてまとめてインストール"
+    すべてのトークナイザを一度に試したい場合:
+    ```bash
+    pip install "toiro[all_tokenizers]"
+    ```
+
+!!! note "システムレベルのインストールが必要なツール"
+    KyTea と Juman++ は、Python パッケージをインストールする前にシステムレベルでのインストールが必要です。詳細は各プロジェクトの公式ドキュメントを参照してください。
+
+## Docker を使う
+
+すべてのトークナイザがプリインストールされた Docker イメージも利用できます：
 
 ```bash
-pip install "toiro[all_tokenizers]"
+docker run --rm -it taishii/toiro /bin/bash
+```
+
+詳細は [Docker Hub](https://hub.docker.com/r/taishii/toiro) を参照してください。
+
+## 分類器の追加（オプション）
+
+BERT ベースのテキスト分類器を使いたい場合:
+
+```bash
+pip install "toiro[all_classifiers]"
+```
+
+または個別に:
+
+```bash
+pip install torch transformers catalyst
 ```
