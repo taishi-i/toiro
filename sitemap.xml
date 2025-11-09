@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://taishi-i.github.io/toiro/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/api/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/api/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/api/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/benchmarks/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/benchmarks/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/benchmarks/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/contributing/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/contributing/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/corpora/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/corpora/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/corpora/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/installation/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/installation/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/license/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/license/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/license/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/quickstart/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/tokenizers/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/tokenizers/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/api/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/api/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/api/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/benchmarks/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/benchmarks/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/benchmarks/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/contributing/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/contributing/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/contributing/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/corpora/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/corpora/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/corpora/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/installation/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/installation/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/installation/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/license/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/license/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/license/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/quickstart/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://taishi-i.github.io/toiro/en/tokenizers/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://taishi-i.github.io/toiro/en/tokenizers/"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://taishi-i.github.io/toiro/tokenizers/"/>
+    </url>
+</urlset>
